@@ -1,6 +1,17 @@
-// Define the class
+
+/**
+Custom HTML style element 'code-element' for visually appealing code snippets with colored buttons and monospace font.
+Displays code in <pre><code> block with 'language-python' class for syntax highlighting.
+Code class defines element behavior with connectedCallback method.
+Buttons styled using 'btn1', 'btn2', and 'btn3' classes with unique background colors.
+Font-family set to 'Ubuntu Mono', monospace for consistent, readable code.
+'color-code' class provides '#22272e' background color for enhanced visual appeal.
+Versatile & engaging element for code examples, tutorials, or documentation.
+*/
+
 class Code extends HTMLElement {
    connectedCallback() {
+      // Define a custom HTML element named 'code-element' for presenting code snippets with colorful buttons and monospace font.
       this.innerHTML = `
       <style>
          .btncore {

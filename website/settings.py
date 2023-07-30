@@ -74,10 +74,11 @@ TEMPLATES = [
 
 
 TEMPLATE_DIRS = [
-  Path('templates') / 'home',
-  Path('templates') / 'navbar',
-  Path('templates') / 'about',
-  Path('templates') / 'resume'
+    Path('templates') / 'home',
+    Path('templates') / 'navbar',
+    Path('templates') / 'about',
+    Path('templates') / 'resume',
+    Path('templates') / 'footer',
 ]
 
 
