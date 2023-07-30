@@ -1,12 +1,24 @@
+<!-- 
+   Resume.
+   This page describes information about the Harrinson. General personal and academic description.
+   Plus an Bootstrap accordion button style for showing in clicking the personal details and research summary.
+   The main navbar is replaced bu the auxiliary navbar beacuse the main navbar is included in the Hero.
+-->
+
+<!-- Extends Main Template -->
 {% extends 'main.html' %}
 
+<!-- 
+   Modal for Contact Form
+   This code represents a Bootstrap modal element used for displaying a contact form.
+-->
 <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
+         </div>|  
          <div class="modal-body">
             {% include 'contact_form.html' %} <!-- Include the content of contact_form.html -->
          </div>
@@ -15,7 +27,7 @@
 </div>
 
 
-
+<!-- Main Content Block -->
 {% block content %}
    {% include 'navbar/aux_navbar.html' %}
    {% include 'resume/resume_content.html' %}
