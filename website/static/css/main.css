@@ -3,7 +3,7 @@
 
 
 
-
+/* Here we have the main webiste tags */
 a {
   color: #FFB1B1; /* link color */
   font-family: 'Open Sans', sans-serif;
@@ -37,7 +37,7 @@ p {
    font-size: 18px !important;
 }
 
-.footer {
+.footer-modification {
    padding-top: 2rem;
    padding-bottom: 3rem;
    border-top: 1.5px solid black;

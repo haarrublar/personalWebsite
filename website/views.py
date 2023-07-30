@@ -12,3 +12,6 @@ def about(request):
 
 def resume(request):
     return render(request, 'resume/resume.html')
+
+def footer(request):
+    return render(request, 'footer/footer.html')

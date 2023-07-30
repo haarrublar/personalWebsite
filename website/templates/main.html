@@ -9,7 +9,6 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -19,16 +18,24 @@
    href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark-dimmed.min.css"
    />
    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
-   <!-- and it's easy to individually load additional languages -->
    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
-   </script>
 </head>
 <body>
 
 
-
+   <!--
+      Modal Element 'myModal' for displaying a contact form in a Bootstrap modal dialog.
+      This modal is triggered when the user clicks on a specific button or link on the webpage.
+      The 'tabindex="-1"' attribute ensures that the modal can't be accessed by keyboard navigation until it's triggered.
+      The 'aria-labelledby="exampleModalLabel"' attribute associates the modal with the title 'Contact Form' for accessibility purposes.
+      The 'aria-hidden="true"' attribute hides the modal from screen readers when it's not active.
+      Inside the modal, a 'modal-dialog' div is used to create the dialog box.
+      The 'modal-content' div contains the content of the modal, including the header and body.
+      The header includes a close button with the 'btn-close' class to allow users to close the modal.
+      The body of the modal includes the content of the 'contact_form.html' file, which is included using the 'include' template tag.
+      The 'contact_form.html' file contains the actual contact form to be displayed inside the modal.
+   -->
    
-   {% comment %} contact modal {% endcomment %}
    <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
          <div class="modal-content">
@@ -43,45 +50,43 @@
       </div>
    </div>
 
+
+
+
+   <!--
+   The personalWebsite core pagination.
+   -->
    {% block content %}
    {% include 'home' %}
-   {% include 'navbar/footer' %}
    {% endblock %}
 
 
-   <style>
-      footer .container {
-         width: 100% !important;
-      }
-
-      .container-footer {
-         width: 100% !important;
-      }
-   </style>
-
-   <footer class="footer">
-      <div class="row justify-content-center">
-         <div class="col-8 d-flex justify-content-center mt-2">
-            <div class="col-auto">
-               <a href="#" class="btn btn-outline-dark w-100">Notebooks</a>
-            </div>
-            <div class="col-auto">
-               <a href="#" class="mx-4 btn btn-outline-dark w-100">Blog</a>
-            </div>
-         </div>
-      </div>
+   <!--
+   The personalWebsite footer.
+   It includes the footer-moditication css style and the footer.html page.
+   -->
+   <footer class="footer-modification">
+      {% include 'footer/footer.html' %}
    </footer>
 
 
 
-
+  <!--
+   This script tag applies syntax highlighting to code snippets on the webpage using the 'hljs.highlightAll()' function from the Highlight.js library.
+   The 'highlightAll()' function automatically scans the document for code blocks marked with the 'language-*' class and adds syntax highlighting to them.
+   -->
    <script>hljs.highlightAll();</script>
    
    
    
-   {% comment %} This complete script function enables to scroll and change the color at the same time.
-   It must be used together, as a whole sript. {% endcomment %}
-   
+
+   <!--
+   Function: smoothScrollDown(times)
+   Parameters:
+      - times: A numeric value representing the number of times the page will scroll down.
+
+   The smoothScrollDown function enables automatic downward scrolling on the webpage by a specified amount of pixels, with customizable scroll speed and repetition. It utilizes a loop with timed delays to achieve smooth scrolling and enhances user experience for long pages.
+   -->
    <script>
       // function to auto scroll
       function smoothScrollDown(times) {
@@ -93,8 +98,20 @@
             }, 270); // Add a delay between each scroll (1 second in this example)
             }
       }
+   </script>
 
 
+
+   <!--
+   Function: handleTabContent()
+   Parameters: None
+   Variables:
+      - researchTab: Represents the element corresponding to the research tab.
+      - personalTab: Represents the element corresponding to the personal tab.
+
+   The handleTabContent function is a custom JavaScript function that controls the behavior of tab content. It uses event listeners to detect when a tab is being shown and hides the other tab's content to ensure only one tab is visible at a time. This enhances the user experience by providing a seamless and intuitive tab interface.
+   -->
+   <script>
       // Custom JavaScript to hide/show the content of the tabs
       const researchTab = document.getElementById("collapseResearch");
       const personalTab = document.getElementById("personal");
@@ -108,8 +125,19 @@
          // Hide the researchTab when showing the personalTab
          researchTab.classList.remove("show");
       });
+   </script>
 
-      
+   
+   <!--
+   Function: changeColor(div)
+   Parameters: div (HTMLElement) - Represents the HTML div element that triggers the color change when clicked.
+   Variables:
+      - selectedDiv: Represents the currently selected div, used to keep track of the previously clicked div.
+      - originalColor: Holds the original background color of the div.
+   
+   Allows toggling the background color of the clicked div between transparent and original color. When a different div is clicked, the color of the previously selected div (if any) is reset. This provides visual feedback on div selection and allows for easy comparison of different elements.
+   -->
+   <script>
       let selectedDiv = null;
       const originalColor = '#E5E5E5';
 
@@ -128,15 +156,20 @@
          selectedDiv = div;
          }
       }
-
-
    </script>
 
+   <!--
+   Loading the Bootstrap library.
+   -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-
-   {% comment %} New tags {% endcomment %}
+   <!--
+   The script tag includes "code.js" in the webpage, and the defer attribute delays the execution until the page has finished parsing.
+   -->
    <script src="{% static 'js/code.js' defer %}"></script>
+
+
+
 </body>
 </html>
