@@ -1,0 +1,28 @@
+<style>
+   .navbar-padding {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   }
+   .navbar-brand {
+      color: black;
+      font-size: 28px;
+   }
+</style>
+<div class="container navbar-padding" style="width:90%">
+   <div class="row align-items-center">
+      <div class="col-md-12 col-lg-3">
+         <a href="{% url 'home' %}" class="navbar-brand h2" href="#"><b>haarublar's Journal</b></a>
+      </div>
+      <div class="col-md-12 col-lg-6 d-flex justify-content-center mt-2 mt-lg-0">
+         <div class="col-auto nav-item">
+         <a href="{% url 'home' %}" class="mx-1 btn btn-outline-dark">Home</a>  
+         </div>
+         <div class="col-auto nav-item">
+         <a href="{% url 'about' %}" class="mx-1 btn btn-outline-dark">About</a>
+         </div>
+         <div class="col-auto nav-item">
+         <a href="{% url 'resume' %}" class="mx-1 btn btn-outline-dark">Resume</a>
+         </div>
+      </div>
+   </div>
+</div>

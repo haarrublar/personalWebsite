@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   <link
+   rel="stylesheet"
+   href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark-dimmed.min.css"
+   />
+   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+   <!-- and it's easy to individually load additional languages -->
+   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+   </script>
+</head>
+<body>
+
+
+
+   
+   {% comment %} contact modal {% endcomment %}
+   <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               {% include 'contact_form.html' %} <!-- Include the content of contact_form.html -->
+            </div>
+         </div>
+      </div>
+   </div>
+
+   {% block content %}
+   {% include 'home' %}
+   {% include 'navbar/footer' %}
+   {% endblock %}
+
+
+   <style>
+      footer .container {
+         width: 100% !important;
+      }
+
+      .container-footer {
+         width: 100% !important;
+      }
+   </style>
+
+   <footer class="footer">
+      <div class="row justify-content-center">
+         <div class="col-8 d-flex justify-content-center mt-2">
+            <div class="col-auto">
+               <a href="#" class="btn btn-outline-dark w-100">Notebooks</a>
+            </div>
+            <div class="col-auto">
+               <a href="#" class="mx-4 btn btn-outline-dark w-100">Blog</a>
+            </div>
+         </div>
+      </div>
+   </footer>
+
+
+
+
+   <script>hljs.highlightAll();</script>
+   
+   
+   
+   {% comment %} This complete script function enables to scroll and change the color at the same time.
+   It must be used together, as a whole sript. {% endcomment %}
+   
+   <script>
+      // function to auto scroll
+      function smoothScrollDown(times) {
+         const scrollAmount = 200; // Adjust the scroll amount as needed (in pixels)
+
+         for (let i = 0; i < times; i++) {
+            setTimeout(() => {
+               window.scrollBy(0, scrollAmount);
+            }, 270); // Add a delay between each scroll (1 second in this example)
+            }
+      }
+
+
+      // Custom JavaScript to hide/show the content of the tabs
+      const researchTab = document.getElementById("collapseResearch");
+      const personalTab = document.getElementById("personal");
+
+      researchTab.addEventListener("show.bs.collapse", () => {
+         // Hide the personalTab when showing the researchTab
+         personalTab.classList.remove("show");
+      });
+
+      personalTab.addEventListener("show.bs.collapse", () => {
+         // Hide the researchTab when showing the personalTab
+         researchTab.classList.remove("show");
+      });
+
+      
+      let selectedDiv = null;
+      const originalColor = '#E5E5E5';
+
+      function changeColor(div) {
+         if (selectedDiv === div) {
+         // If the clicked div is already selected, reset its color to the original background color
+         div.style.backgroundColor = originalColor;
+         selectedDiv = null;
+         } else {
+         // If a different div is clicked, reset the color of the previously selected div (if any)
+         if (selectedDiv) {
+            selectedDiv.style.backgroundColor = originalColor;
+         }
+         // Apply the hover background color to the clicked div
+         div.style.backgroundColor = 'transparent';
+         selectedDiv = div;
+         }
+      }
+
+
+   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+   {% comment %} New tags {% endcomment %}
+   <script src="{% static 'js/code.js' defer %}"></script>
+</body>
+</html>
