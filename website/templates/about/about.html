@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            {% include 'contact_form.html' %} <!-- Include the content of contact_form.html -->
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+{% block content %}
+   {% include 'navbar/aux_navbar.html' %}
+   {% include 'about/about_content.html' %}
+{% endblock %}
