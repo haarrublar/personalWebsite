@@ -94,6 +94,25 @@ ul.no-bullets {
 
 
 
+/* Main navbar style attached in the hero.html from the main_navbar.html page.  */
+/* -------------------------------------------------------*/
+.navbar-padding {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+}
+.navbar-brand {
+   color: black;
+   font-size: 28px;
+}
+/* -------------------------------------------------------*/
+
+
+
+
+
+
+
+
 
 .nav-link {
    color: black !important;
