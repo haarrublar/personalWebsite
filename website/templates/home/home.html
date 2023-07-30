@@ -1,19 +1,15 @@
+<!-- 
+   home.
+   This HTML code extends a base template ('main.html') and includes a modal component for a contact form. It also defines a main content block with two included sections ('home/hero.html' and 'home/home_content.html') for displaying essential homepage content.
+-->
+
+
+<!-- Extends Main Template -->
 {% extends 'main.html' %}
 
-<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-            {% include 'contact_form.html' %} <!-- Include the content of contact_form.html -->
-         </div>
-      </div>
-   </div>
-</div>
 
+
+<!-- Main Content Block -->
 {% block content %}
    {% include 'home/hero.html' %}
    {% include 'home/home_content.html' %}

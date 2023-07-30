@@ -24,40 +24,12 @@
 
 
    <!--
-      Modal Element 'myModal' for displaying a contact form in a Bootstrap modal dialog.
-      This modal is triggered when the user clicks on a specific button or link on the webpage.
-      The 'tabindex="-1"' attribute ensures that the modal can't be accessed by keyboard navigation until it's triggered.
-      The 'aria-labelledby="exampleModalLabel"' attribute associates the modal with the title 'Contact Form' for accessibility purposes.
-      The 'aria-hidden="true"' attribute hides the modal from screen readers when it's not active.
-      Inside the modal, a 'modal-dialog' div is used to create the dialog box.
-      The 'modal-content' div contains the content of the modal, including the header and body.
-      The header includes a close button with the 'btn-close' class to allow users to close the modal.
-      The body of the modal includes the content of the 'contact_form.html' file, which is included using the 'include' template tag.
-      The 'contact_form.html' file contains the actual contact form to be displayed inside the modal.
-   -->
-   
-   <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               {% include 'contact_form.html' %} <!-- Include the content of contact_form.html -->
-            </div>
-         </div>
-      </div>
-   </div>
-
-
-
-
-   <!--
    The personalWebsite core pagination.
    -->
    {% block content %}
-   {% include 'home' %}
+      {% include 'home' %}
+      <!-- Include the contact form here -->
+      {% include 'contact_form.html' %}
    {% endblock %}
 
 
