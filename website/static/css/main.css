@@ -110,6 +110,31 @@ ul.no-bullets {
 
 
 
+/* Hero style from the hero.html page.  */
+/* -------------------------------------------------------*/
+.social-icons {
+   fonst-size: 1.5rem;
+   color: black;
+}
+.btn-gap {
+   margin-right: 2rem;
+}
+.btn-dark:hover {
+   background-color: transparent; 
+   border-color: black; 
+   color: black;
+}
+.navbar-padding {
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+}
+.navbar-brand {
+   color: black;
+   font-size: 28px;
+}
+
+
+
 
 
 
