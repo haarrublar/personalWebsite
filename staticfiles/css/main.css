@@ -1,0 +1,72 @@
+/* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+a {
+  color: #FFB1B1; /* link color */
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+}
+
+a.icon {
+  color: black;
+}
+
+a:link {
+   text-decoration: none;
+}
+
+a:hover {
+  color: #A5E1E1; /* hover color */ 
+  text-decoration: none;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   word-wrap: break-word;
+}
+
+h1 {
+   font-family: 'Open Sans', sans-serif;
+}
+
+p {
+   font-family: 'Open Sans', sans-serif;
+   font-size: 18px !important;
+}
+
+
+.nav-link {
+   color: black !important;
+   font-size: 28px;
+}
+
+.nav-link.active {
+   color: gray;
+}
+
+/* .nav-tabs { 
+   border-bottom: none;
+} */
+.color-div {
+   cursor: pointer;
+   transition: background-color 0.3s, color 0.3s; /* Add transition for background and text color */
+   color: #FFFFFF; /* Set initial text color to white */
+}
+
+/* Separate hover-effect class for background color change */
+.color-div.hover-effect {
+   /* background-color: #FFB1B1; */
+   background-color: transparent;
+}
+
+/* Separate text-effect class for text color change */
+.color-div.text-effect {
+   color: #000000; /* Change text color to black */
+}
+
+.container {
+   width: 85%;
+}
+
