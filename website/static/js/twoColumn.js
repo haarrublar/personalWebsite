@@ -24,14 +24,14 @@ class TwoColumnLayout extends HTMLElement {
                flex-wrap: wrap;
             }
             .col-md-6 {
-               flex-basis: 18%;
-               max-width: 18%;
+               flex-basis: 15%;
+               max-width: 15%;
                box-sizing: border-box;
                padding-left: 1rem;
             }
             .col-md-6:last-child {
-               flex-basis: 82%;
-               max-width: 82%;
+               flex-basis: 85%;
+               max-width: 85%;
             }
             .col-md-6.left-column {
                text-align: right; /* Align the text in the left column to the right */
