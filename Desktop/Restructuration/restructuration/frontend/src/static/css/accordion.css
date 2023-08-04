@@ -1,0 +1,22 @@
+/* Custom styling for the accordion */
+.accordion-button {
+   font-size: inherit;
+}
+
+.accordion-item {
+   border: 1px solid rgba(35,65,100,.15);
+}
+
+.accordion-button:not(.collapsed) {
+   color: inherit;
+   background: black;
+   color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+   filter: brightness(0%) invert(100%);
+}
+
+.accordion-button:focus {
+   box-shadow: inherit;
+}

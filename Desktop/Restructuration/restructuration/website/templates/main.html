@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   <link
+   rel="stylesheet"
+   href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark-dimmed.min.css"
+   />
+   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+</head>
+<body>
+
+
+   <!--
+   The personalWebsite core pagination.
+   -->
+   {% block content %}
+      {% include 'home' %}
+      <!-- Include the contact form here -->
+      {% include 'contact_form.html' %}
+   {% endblock %}
+
+
+   <!--
+   The personalWebsite footer.
+   It includes the footer-moditication css style and the footer.html page.
+   -->
+   <footer class="footer-modification">
+      {% include 'footer/footer.html' %}
+   </footer>
+
+
+
+  <!--
+   This script tag applies syntax highlighting to code snippets on the webpage using the 'hljs.highlightAll()' function from the Highlight.js library.
+   The 'highlightAll()' function automatically scans the document for code blocks marked with the 'language-*' class and adds syntax highlighting to them.
+   -->
+   <script>hljs.highlightAll();</script>
+   
+   
+   
+
+   <!--
+   Function: smoothScrollDown(times)
+   Parameters:
+      - times: A numeric value representing the number of times the page will scroll down.
+
+   The smoothScrollDown function enables automatic downward scrolling on the webpage by a specified amount of pixels, with customizable scroll speed and repetition. It utilizes a loop with timed delays to achieve smooth scrolling and enhances user experience for long pages.
+   -->
+   <script>
+      // function to auto scroll
+      function smoothScrollDown(times) {
+         const scrollAmount = 200; // Adjust the scroll amount as needed (in pixels)
+
+         for (let i = 0; i < times; i++) {
+            setTimeout(() => {
+               window.scrollBy(0, scrollAmount);
+            }, 270); // Add a delay between each scroll (1 second in this example)
+            }
+      }
+   </script>
+
+
+
+   <!--
+   Function: handleTabContent()
+   Parameters: None
+   Variables:
+      - researchTab: Represents the element corresponding to the research tab.
+      - personalTab: Represents the element corresponding to the personal tab.
+
+   The handleTabContent function is a custom JavaScript function that controls the behavior of tab content. It uses event listeners to detect when a tab is being shown and hides the other tab's content to ensure only one tab is visible at a time. This enhances the user experience by providing a seamless and intuitive tab interface.
+   -->
+   <script>
+      // Custom JavaScript to hide/show the content of the tabs
+      const researchTab = document.getElementById("collapseResearch");
+      const personalTab = document.getElementById("personal");
+
+      researchTab.addEventListener("show.bs.collapse", () => {
+         // Hide the personalTab when showing the researchTab
+         personalTab.classList.remove("show");
+      });
+
+      personalTab.addEventListener("show.bs.collapse", () => {
+         // Hide the researchTab when showing the personalTab
+         researchTab.classList.remove("show");
+      });
+   </script>
+
+   
+   <!--
+   Function: changeColor(div)
+   Parameters: div (HTMLElement) - Represents the HTML div element that triggers the color change when clicked.
+   Variables:
+      - selectedDiv: Represents the currently selected div, used to keep track of the previously clicked div.
+      - originalColor: Holds the original background color of the div.
+   
+   Allows toggling the background color of the clicked div between transparent and original color. When a different div is clicked, the color of the previously selected div (if any) is reset. This provides visual feedback on div selection and allows for easy comparison of different elements.
+   -->
+   <script>
+      let selectedDiv = null;
+      const originalColor = '#E5E5E5';
+
+      function changeColor(div) {
+         if (selectedDiv === div) {
+         // If the clicked div is already selected, reset its color to the original background color
+         div.style.backgroundColor = originalColor;
+         selectedDiv = null;
+         } else {
+         // If a different div is clicked, reset the color of the previously selected div (if any)
+         if (selectedDiv) {
+            selectedDiv.style.backgroundColor = originalColor;
+         }
+         // Apply the hover background color to the clicked div
+         div.style.backgroundColor = 'transparent';
+         selectedDiv = div;
+         }
+      }
+   </script>
+
+   <!--
+   Loading the Bootstrap library.
+   -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+   <!--
+   The script tag includes "code.js" in the webpage, and the defer attribute delays the execution until the page has finished parsing.
+   -->
+   <script src="{% static 'js/code.js' defer %}"></script>
+   <!--
+   The script tag includes "twoColumn.js" in the webpage
+   -->
+   <script src="{% static 'js/twoColumn.js' defer %}"></script>
+
+
+
+</body>
+</html>
