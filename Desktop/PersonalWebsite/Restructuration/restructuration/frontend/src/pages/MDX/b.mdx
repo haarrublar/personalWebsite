@@ -1,0 +1,62 @@
+---
+date: "2018-01-18"
+title: "A couple of metrics in generalrepytivity"
+summary: "This post is a tutorial on the small tool I wrote for manipulating tensors in General Relativity, called generalrepytivity."
+imgsrc: "/assets/gammas.png"
+lang: "en"
+categories:
+  - Math
+  - Python
+---
+
+# A couple of metrics in generalrepytivity
+
+As a small tutorial on [generalrepytivity](https://github.com/miguelgondu/generalrepytivity)[^1], this blogpost explains
+how to create a metric tensor in generalrepytivity and, with it,
+how to get all the usual geometric invariants one is interested in
+(such as the Riemann tensor, the Ricci tensor and the scalar 
+curvature). You can find all the code in this article in this
+[jupyter notebook](https://gist.github.com/miguelgondu/2fb6d97291a1478d8522ad7b9410748c).
+
+## Installing the library
+
+generalrepytivity is now on [pypi](https://pypi.python.org/pypi?name=generalrepytivity&version=0.1.0&:action=display), so installing it is easy using `pip`:
+
+```bash
+pip install generalrepytivity
+```
+
+## Importing the library
+
+We heavily recommend importing it along with [sympy](http://www.sympy.org/en/index.html)
+(the symbolic computation library of python):
+
+```python
+import generalrepytivity as gr
+import sympy
+```
+
+Tensors come with a fancy LaTeX printing function, so if 
+you're working on a [jupyter notebook](http://jupyter.org/) I recommend setting
+the printing function of sympy to use latex:
+
+```python
+sympy.init_printing(use_latex=True)
+```
+
+## Creating a tensor in *generalrepytivity*
+
+To create a Tensor object, one must specify three things:
+
+- **coordinates**, which are a list of sympy symbols.
+- **_type**, a tuple of integers `(p,q)`.
+- **values**, a dictionary of the non-zero values (whose keys
+  are tuples of multiindices).
+
+For example, say you want to create the following tensor in $\mathbb{R}^4$ with coordinates $t, x, y, z$:
+
+$$ \Gamma = (x^2 + y^2)\frac{\partial}{\partial t}\otimes \frac{\partial}{\partial x}\otimes dx\otimes dz + \sin(t)\frac{\partial}{\partial x}\otimes \frac{\partial}{\partial y}\otimes dt \otimes dt $$
+
+in this case, we would need the sympy symbols `t, x, y, z` for the **coordinates**,
+the **_type** would be (2,2) (because $\Gamma$ is a (2,2)-tensor) and for the **values**
+note that the **components** of $\Gamma$ in these coordinates are the following:
