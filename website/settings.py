@@ -25,14 +25,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-3+zu_f&t#opj^_ce#e#54ok^6f-*=d*743qo$2v%e2d_=s@&@f'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: Do not run with debug turned on in production!
+"""
+Variable to define if the project is being used in a production or development environment.
+Set DEBUG to True for development and False for production.
+
+In production, setting DEBUG to False is crucial for security. With DEBUG set to True, detailed error
+messages are displayed, which can expose sensitive information to attackers. Additionally, other settings
+such as ALLOWED_HOSTS and database settings should be configured properly for production environments.
+"""
 DEBUG = True
 
+
+"""
+Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
+"""
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+"""
+All the apps (components) in the project.
+"""
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'blog.apps.BlogConfig'
 ]
 
 MIDDLEWARE = [
