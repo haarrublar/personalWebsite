@@ -34,6 +34,7 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         related_name='blog_posts'
     )
+    summary = models.TextField()
     body = models.TextField()
     status = models.CharField(
         max_length=2,

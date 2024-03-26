@@ -1,13 +1,25 @@
 /* main.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-
+.noto-sans-display {
+   font-family: "Noto Sans Display", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400; /* Choose the appropriate weight */
+   font-style: normal;
+   font-variation-settings: "wdth" 100;
+ }
 
 /* Here we have the main webiste tags */
 /* -------------------------------------------------------*/
 a {
   color: #FFB1B1; /* link color */
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Noto Sans Display", sans-serif;
   text-decoration: none;
 }
 
@@ -25,16 +37,16 @@ a:hover {
 }
 
 body {
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Noto Sans Display", sans-serif;
    word-wrap: break-word;
 }
 
 h1 {
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Noto Sans Display", sans-serif;
 }
 
 p {
-   font-family: 'Open Sans', sans-serif;
+   font-family: "Noto Sans Display", sans-serif;
    font-size: 18px !important;
 }
 
