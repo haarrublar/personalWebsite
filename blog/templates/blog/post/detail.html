@@ -1,8 +1,12 @@
 {% extends "blog/main.html" %} 
+{% load static %}
 
-{% block title %}{{post.title}}{% endblock %} 
+<!-- {% block title %}{{post.title}}{% endblock %}  -->
 {% block content %}
+
     <h1>{{post.title}}</h1>
     <a>Published {{post.created}} by {{post.author}}</a>
-    {{post.body|linebreaks}} 
+    <p>
+        {{ post.body|linebreaks|safe }}
+    </p> 
 {% endblock %}

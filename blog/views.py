@@ -20,7 +20,8 @@ def post_detail(request, id):
         id=id,
         status=Post.Status.PUBLISHED
     )
+    context = {'post': post}
     return render(request,
                   'blog/post/detail.html',
-                  {'posts': post}
+                  context
     )
