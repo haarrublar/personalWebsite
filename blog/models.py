@@ -8,15 +8,23 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Post(models.Model):
+class PublishedManager(models.Manager):
+    """
+    This django class manager ables the communication in between the Post in the DB, and the view. Access to the DB to get the published Post and retrieve that info.
+    """
+    def get_queryset(self):
+        return super().get_queryset()\
+            .filter(status=Post.Status.PUBLISHED)
 
+
+
+class Post(models.Model):
     class Status(models.TextChoices):
         """
         Create a status per blog. Two status allowed: draft and published depicting incomplete /in progress and completed respectively. 
         """
-        draft = 'df','draft'
-        published = 'pb','published'
-
+        DRAFT = 'DF','Draft'
+        PUBLISHED = 'PB','Published'
     title = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     # the slug term is for URL creation
@@ -30,9 +38,11 @@ class Post(models.Model):
     status = models.CharField(
         max_length=2,
         choices=Status.choices,
-        default=Status.draft
+        default=Status.DRAFT
     )
 
+    objects = models.Manager()
+    published = PublishedManager()
 
     class Meta:
         """
