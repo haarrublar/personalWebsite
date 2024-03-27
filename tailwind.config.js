@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: [
@@ -28,6 +29,7 @@ module.exports = {
                 color: `${theme('colors.primary.600')}`,
               },
               code: { color: theme('colors.primary.400') },
+              'text-decoration': 'none',
             },
             'h1,h2': {
               fontWeight: '700',
@@ -39,6 +41,7 @@ module.exports = {
             code: {
               color: theme('colors.indigo.500'),
             },
+            lineHeight: '1.5',
           },
         },
         invert: {
@@ -49,14 +52,37 @@ module.exports = {
                 color: `${theme('colors.primary.400')}`,
               },
               code: { color: theme('colors.primary.400') },
+              'text-decoration': 'none'
             },
             'h1,h2,h3,h4,h5,h6': {
               color: theme('colors.gray.100'),
             },
+            lineHeight: '1.5',
           },
         },
       }),
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'), 
+    require('@tailwindcss/typography'),
+    plugin(function({ addUtilities }) {
+      const newUtilities = {
+        '.lowercase': {
+          textTransform: 'lowercase',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
+    plugin(function({ addUtilities }) {
+      const newUtilities = {
+        '.uppercase': {
+          textTransform: 'uppercase',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
+  ],
 }
