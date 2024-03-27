@@ -35,6 +35,7 @@ class Post(models.Model):
         related_name='blog_posts'
     )
     summary = models.TextField()
+    keywords = models.TextField()
     body = models.TextField()
     status = models.CharField(
         max_length=2,
