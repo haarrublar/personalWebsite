@@ -5,53 +5,54 @@
 {% block content %}
 
     <div class="container">
-        <div class="container-content">
+        <div class="container-content divide-y-2 divide-gray-200 dark:text-gray-100">
             <div class="space-y-2 pb-8 pt-6 md:space-y-5">
                 <h1 class="prose text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                     Latest
                 </h1>
             </div>
         
-        
-        
+
             {% for post in posts %}
         
-                <div style="margin-bottom: 2em">
-                    <hr/>
-                    <div class="grid md:grid-cols-2" style="margin-bottom: 3em; margin-top: 3em;">
-                        <div class="hidden md:block">
-                            <img src="{% static 'media/exm1.jpg' %}" class="img-fluid rounded d-block mx-auto" alt="..." style="height: 280px">
-                        </div>
-                        <div>
-                            <div class="card-body d-flex flex-column align-items-start prose" style="height: 100%; padding: 0px;">
-                                <div style="margin: 0px; padding: 0px;">
-                                    <p class="my-0">
-                                        {{ post.created|date:"F j, Y"  }} 
-                                    </p>
-                                </div>
-                                <h2 class="card-title mb-0 mt-3">
-                                    <a href="{% url 'blog:post_detail' post.id%}" class="title-list">
-                                        {{ post.title }}
-                                    </a>
-                                </h2>
-                                <a class="card-text uppercase">
-                                    <small>
-                                        {{ post.keywords }}
-                                    </small>
-                                </a>
-                                <p class="card-text">
-                                    <!-- {{ post.body|linebreaks|safe }} -->
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptatem veniam voluptatibus ea harum dolore. Consequuntur in maiores voluptatibus possimus pariatur harum rerum magni asperiores ea, repellat accusamus adipisci. Error?
+                <!-- <hr class="border-4" style="height: 40px;"/> -->
+                <div class="grid md:grid-cols-2 py-8">
+                    <div class="hidden md:block">
+                        <img src="{% static 'media/exm1.jpg' %}" class="img-fluid rounded d-block mx-auto" alt="..." style="height: 280px">
+                    </div>
+                    <div>
+                        <div class="card-body d-flex flex-column align-items-start prose" style="height: 100%; padding: 0px;">
+                            <div style="margin: 0px; padding: 0px;">
+                                <p class="my-0  text-gray-500 dark:text-gray-400">
+                                    {{ post.created|date:"F j, Y"  }} 
                                 </p>
-                                <a class="mt-auto card-text">
-                                    Read more &rarr;
-                                </a>
                             </div>
+                            <h2 class="card-title mb-0 mt-3">
+                                <a href="{% url 'blog:post_detail' post.id%}" class="title-link text-gray-900 dark:text-gray-100">
+                                    {{ post.title }}
+                                </a>
+                            </h2>
+                            <a class="card-text uppercase">
+                                <small>
+                                    {{ post.keywords }}
+                                </small>
+                            </a>
+                            <p class="  text-gray-500 dark:text-gray-400">
+                                <!-- {{ post.body|linebreaks|safe }} -->
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptatem veniam voluptatibus ea harum dolore. Consequuntur in maiores voluptatibus possimus pariatur harum rerum magni asperiores ea, repellat accusamus adipisci. Error?
+                            </p>
+                            <a class="mt-auto card-text">
+                                Read more &rarr;
+                            </a>
                         </div>
                     </div>
                 </div>
-            
             {% endfor %}
+
+            
         </div>
     </div>
 {% endblock  %}
+
+
+<script src="{% static 'js/darkmode.js' %}"></script>
