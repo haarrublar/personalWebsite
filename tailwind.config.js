@@ -66,22 +66,23 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'), 
     require('@tailwindcss/typography'),
-    plugin(function({ addUtilities }) {
+    plugin(function({ addUtilities, theme }) {
       const newUtilities = {
         '.lowercase': {
           textTransform: 'lowercase',
         },
-      };
-
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    }),
-    plugin(function({ addUtilities }) {
-      const newUtilities = {
         '.uppercase': {
           textTransform: 'uppercase',
         },
+        '.title-link': {
+          color: theme('colors.gray.600'),
+          fontWeight: '600',
+          textDecoration: 'none',
+          '&:hover': {
+            color: theme('colors.gray.800'), 
+          },
+        },
       };
-
       addUtilities(newUtilities, ['responsive', 'hover']);
     }),
   ],

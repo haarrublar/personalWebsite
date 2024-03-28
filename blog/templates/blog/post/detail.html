@@ -4,25 +4,28 @@
 <!-- {% block title %}{{post.title}}{% endblock %}  -->
 {% block content %}
 
-    <div class="container">
-        <div class="row g-0">
-        <div class="col-md-5">
-            <img src="{% static 'media/exm1.jpg' %}" class="img-fluid rounded d-block mx-auto" alt="..." style="height: 280px">
+<div>
+    <div class="container-content">
+
+        <div class="space-y-2 pb-8 pt-6 md:space-y-5">
+            <h1 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+                {{post.title}}
+            </h1>
         </div>
-        <div class="col-md-7">
-            <div class="card-body">
-            <h2 class="card-title">Card title</h2>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+        <div class="prose mb-3">
+            <h3>
+                <a href="#"> 
+                    Published {{post.created|date:"F j, Y"}} - {{post.author}}
+                </a>
+            </h3>
         </div>
+        <hr/>
+        <div class="prose my-4">
+            <p>
+                {{ post.body|linebreaks|safe }}
+            </p> 
         </div>
     </div>
+</div>
 
-
-    <h1>{{post.title}}</h1>
-    <a>Published {{post.created}} by {{post.author}}</a>
-    <p>
-        {{ post.body|linebreaks|safe }}
-    </p> 
 {% endblock %}

@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+/* Custom dark mode styles */
+.dark {
+   background-color: #1a202c;
+   color: #d6d6d6;
+ }
 
 .content {
     margin: 5%;

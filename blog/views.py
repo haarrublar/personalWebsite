@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from .models import Post
 from django.shortcuts import get_object_or_404
 
@@ -25,3 +26,5 @@ def post_detail(request, id):
                   'blog/post/detail.html',
                   context
     )
+
+
