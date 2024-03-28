@@ -5,22 +5,48 @@
 
 /* Custom dark mode styles */
 .dark {
-   background-color: #1a202c;
+   background-color: #121212;
    color: #d6d6d6;
  }
 
+/* Custom dark mode styles */
+.dark #dark-mode-toggle > i {
+   color: #fff; /* Change the icon color in dark mode */
+}
+
+#dark-mode-toggle > i {
+   color: #333; /* Default icon color in light mode */
+}  
+
+
 .content {
-    margin: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .container-content {
-   margin: 5%;
+   margin-left: 5%;
+   margin-right: 5%;
 }
 
 @media (min-width: 768px) {
    /* Medium screens and larger (tablets and computers) */
    .container-content {
-       margin: 15%;
+       margin-left: 15%;
+       margin-right: 15%;
+   }
+}
+
+.container-navbar {
+   margin-left: 3%;
+   margin-right: 3%;
+}
+
+@media (min-width: 768px) {
+   /* Medium screens and larger (tablets and computers) */
+   .container-navbar {
+       margin-left: 8%;
+       margin-right: 8%;
    }
 }
 
