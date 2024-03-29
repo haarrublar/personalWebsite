@@ -18,6 +18,13 @@
    color: #333; /* Default icon color in light mode */
 }  
 
+#dark-mode-toggle i {
+   color: inherit; /* Inherit the text color from the parent button */
+}
+
+#dark-mode-toggle:hover i {
+   color: inherit; /* Ensure the icon inherits the hover text color */
+ }
 
 @media (max-width: 1023px) {
    #dark-mode-toggle {
