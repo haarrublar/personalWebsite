@@ -5,7 +5,7 @@
 
 /* Custom dark mode styles */
 .dark {
-   background-color: #121212;
+   background-color: #1a202c;
    color: #d6d6d6;
  }
 
@@ -19,6 +19,29 @@
 }  
 
 
+@media (max-width: 1023px) {
+   #dark-mode-toggle {
+       margin-right: auto !important; /* Push the icon to the right */
+   }
+}
+
+
+.custom-bullet li {
+   list-style-type: none;
+   position: relative;
+   padding-left: 1.25rem;
+}
+
+.custom-bullet li::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0.6rem;
+   width: 0.4rem;
+   height: 0.4rem;
+   border-radius: 50%;
+   background-color: rgb(147 197 253);
+}
 
 .content {
     margin-left: 5%;

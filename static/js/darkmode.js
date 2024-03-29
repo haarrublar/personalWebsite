@@ -25,22 +25,3 @@ toggleButton.addEventListener('click', () => {
   localStorage.setItem('color-theme', colorTheme);
 });
 
-function updateLogoSrc() {
-  const logo = document.getElementById('latex-logo');
-  const darkSrc = logo.dataset.darkSrc || '';
-  const lightSrc = logo.dataset.lightSrc || '';
-
-  if (document.body.classList.contains('dark')) {
-      if (darkSrc) {
-          logo.src = darkSrc;
-      } else {
-          console.warn('Dark source for the logo is not provided.');
-      }
-  } else {
-      if (lightSrc) {
-          logo.src = lightSrc;
-      } else {
-          console.warn('Light source for the logo is not provided.');
-      }
-  }
-}

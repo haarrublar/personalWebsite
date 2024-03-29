@@ -16,6 +16,9 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
+      fontSize : {
+        '1xl' : '1.75rem',
+      },
       colors: {
         primary: colors.pink,
         gray: colors.gray,
