@@ -5,7 +5,7 @@
 
 /* Custom dark mode styles */
 .dark {
-   background-color: #121212;
+   background-color: #1a202c;
    color: #d6d6d6;
  }
 
@@ -18,6 +18,19 @@
    color: #333; /* Default icon color in light mode */
 }  
 
+#dark-mode-toggle i {
+   color: inherit; /* Inherit the text color from the parent button */
+}
+
+#dark-mode-toggle:hover i {
+   color: inherit; /* Ensure the icon inherits the hover text color */
+ }
+
+@media (max-width: 1023px) {
+   #dark-mode-toggle {
+       margin-right: auto !important; /* Push the icon to the right */
+   }
+}
 
 
 .custom-bullet li {

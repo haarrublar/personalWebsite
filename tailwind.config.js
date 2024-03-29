@@ -22,6 +22,10 @@ module.exports = {
       colors: {
         primary: colors.pink,
         gray: colors.gray,
+        gradientnav: {
+          950: 'rgba(26, 32, 44)',
+          200: 'rgba(26, 32, 44, 0.2)',
+        },
       },
       typography: ({ theme }) => ({
         DEFAULT: {

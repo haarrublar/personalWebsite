@@ -2136,14 +2136,22 @@ ul.no-bullets {
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:from-gray-950) {
-  --tw-gradient-from: #030712 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(3 7 18 / 0) var(--tw-gradient-to-position);
+:is(.dark .dark\:from-gradientnav-950) {
+  --tw-gradient-from: rgba(26, 32, 44) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgba(26, 32, 44, 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-:is(.dark .dark\:to-gray-600) {
-  --tw-gradient-to: #4b5563 var(--tw-gradient-to-position);
+:is(.dark .dark\:to-gradientnav-200) {
+  --tw-gradient-to: rgba(26, 32, 44, 0.2) var(--tw-gradient-to-position);
+}
+
+:is(.dark .dark\:to-gray-700) {
+  --tw-gradient-to: #374151 var(--tw-gradient-to-position);
+}
+
+:is(.dark .dark\:to-gray-800) {
+  --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
 }
 
 :is(.dark .dark\:text-black) {
