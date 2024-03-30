@@ -29,9 +29,9 @@
                         </button>
                      </div>
                      <div class="hidden lg:block">
+                        <a href="/" class="text-gray-900 dark:text-white px-3 py-2 rounded-md text-xl font-medium">Home</a>
                         <a href="{% url 'about' %}" class="text-gray-900 dark:text-white px-3 py-2 rounded-md text-xl font-medium">About</a>
-                        <a href="#" class="text-gray-900 dark:text-white px-3 py-2 rounded-md text-xl font-medium">Page</a>
-                        <a href="#" class="text-gray-900 dark:text-white px-3 py-2 rounded-md text-xl font-medium">Page</a>
+                        <a href="{% url 'blog:post_list' %}" class="text-gray-900 dark:text-white px-3 py-2 rounded-md text-xl font-medium">Blog</a>
                      </div>
                   </div>
                </div>
@@ -43,9 +43,9 @@
    <div id="navbar-menu" class="hidden bg-gradient-to-b from-white to-gray-100 dark:to-gray-700 dark:from-gradientnav-950  rounded-b-2xl" 
    style="margin-left: 3%; margin-right: 3%; width: full;">
       <div class="px-1 pt-2 pb-3 space-y-1 sm:px-3 prose">
+         <a href="/" class=" text-gray-900 dark:text-white block px-3 py-2 rounded-md text-xl font-medium">Home</a>
          <a href="{% url 'about' %}" class=" text-gray-900 dark:text-white block px-3 py-2 rounded-md text-xl font-medium">About</a>
-         <a href="#" class=" text-gray-900 dark:text-white block px-3 py-2 rounded-md text-xl font-medium">Page 2</a>
-         <a href="#" class=" text-gray-900 dark:text-white block px-3 py-2 rounded-md text-xl font-medium">Page 3</a>
+         <a href="{% url 'blog:post_list' %}" class=" text-gray-900 dark:text-white block px-3 py-2 rounded-md text-xl font-medium">Blog</a>
       </div>
    </div>
 </nav>
