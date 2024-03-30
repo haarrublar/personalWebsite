@@ -4,28 +4,63 @@
 <!-- {% block title %}{{post.title}}{% endblock %}  -->
 {% block content %}
 
-<div>
-    <div class="container-content">
+{% load static %}
 
-        <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-            <h1 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                {{post.title}}
-            </h1>
+
+<div class="container max-w-screen-lg">
+    <div class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 text-center prose">
+        <p>
+            Published {{post.created|date:"F j, Y"}} - {{post.author}}
+        </p>
+    </div>
+    <div class="text-center md:py-8 md:border-b-2 md:border-b-gray-200">
+        <h1 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+            {{post.title}}
+        </h1>
+    </div>
+    <div class="md:flex mx-auto">
+        <div class="md:w-1/3 p-2 md:flex md:flex-col md:items-center md:divide-y-2 md:divide-gray-200">
+            <div class="w-full flex justify-center md:justify-start border-b-2 border-b-gray-200 md:border-b-0">
+                <div class="my-6 flex items-center space-x-2">
+                    <img
+                    src="{% static 'media/exm1.jpg' %}"
+                    width={38}
+                    height={38}
+                    alt="avatar"
+                    class="h-10 w-10 rounded-full"
+                    />
+                    <div class="whitespace-nowrap text-sm font-medium leading-5">
+                        <p class="text-gray-900 dark:text-gray-100">
+                            Harrinson Arrubla
+                        </p>
+                        <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="https://twitter.com/haarrublar">
+                            @ Twitter
+                        </a>
+                        </p>
+                    </div>
+                </div>    
+            </div>
+            <div class="w-full justify-start hidden md:block">
+                <div class="my-6">
+                    <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        Tags
+                    </h2>
+                    <div class="flex flex-wrap text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 uppercase">
+                        {{post.keywords}}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="prose mb-3">
-            <h3>
-                <a href="#"> 
-                    Published {{post.created|date:"F j, Y"}} - {{post.author}}
-                </a>
-            </h3>
-        </div>
-        <hr/>
-        <div class="prose my-4">
-            <p>
-                {{ post.body|linebreaks|safe }}
-            </p> 
+        <div class="md:w-2/3 px-8">
+            <div class="flex justify-center items-center my-6 prose text-gray-500 dark:text-gray-200">
+                <p>
+                    {{ post.body|linebreaks|safe }}
+                </p>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 {% endblock %}

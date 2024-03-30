@@ -1,7 +1,4 @@
 from django.shortcuts import render
-from pygments import highlight 
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
 
 
 def home(request):

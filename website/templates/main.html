@@ -33,29 +33,31 @@
 
 <body>
 
-   <header>
-      {% include 'navbar/navbar.html' %}
-   </header>
+   <div class="min-h-screen flex flex-col">
+      <main class="flex-grow">   
+         <header>
+            {% include 'navbar/navbar.html' %}
+         </header>
 
-   <div class="content">
+         <div class="content">
+            <!--
+            The personalWebsite core pagination.
+            -->
+            {% block content %}
+               {% include 'home' %}
+               <!-- Include the contact form here -->
+               {% include 'contact_form.html' %}
+            {% endblock %}
+         </div>
+      </main>
       <!--
-      The personalWebsite core pagination.
+      The personalWebsite footer.
+      It includes the footer-moditication css style and the footer.html page.
       -->
-      {% block content %}
-         {% include 'home' %}
-         <!-- Include the contact form here -->
-         {% include 'contact_form.html' %}
-      {% endblock %}
+      <footer class="mt-auto">
+         {% include 'footer/footer.html' %}
+      </footer>
    </div>
-   
-   <!--
-   The personalWebsite footer.
-   It includes the footer-moditication css style and the footer.html page.
-   -->
-   <footer>
-      {% include 'footer/footer.html' %}
-   </footer>
-
 
   <!--
    This script tag applies syntax highlighting to code snippets on the webpage using the 'hljs.highlightAll()' function from the Highlight.js library.
