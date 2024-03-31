@@ -71,8 +71,10 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'), 
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
     plugin(function({ addUtilities, theme }) {
       const newUtilities = {
         '.lowercase': {

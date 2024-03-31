@@ -1471,6 +1471,10 @@ select {
   height: 4rem;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .h-40 {
   height: 10rem;
 }
@@ -1483,6 +1487,10 @@ select {
   height: 1.75rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1493,6 +1501,10 @@ select {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .w-40 {
@@ -1511,6 +1523,10 @@ select {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1525,6 +1541,16 @@ select {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .flex-col {
@@ -1664,9 +1690,14 @@ select {
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 
-.bg-slate-300 {
+.bg-sky-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+  background-color: rgb(56 189 248 / var(--tw-bg-opacity));
+}
+
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -1900,6 +1931,10 @@ select {
   opacity: 1;
 }
 
+.opacity-75 {
+  opacity: 0.75;
+}
+
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -1935,23 +1970,94 @@ select {
 
 /* LONG TEXT GSAP ANIMATION */
 
-.long-text-gsp .text {
+:root {
+  --full-vw: 98vw;
+  /* Create a CSS variable to store the full viewport width */
+}
+
+.w-screen {
+  width: var(--full-vw);
+  /* Use the CSS variable to set the width */
+  position: relative;
+  /* Add position relative to enable positioning for child elements */
+  left: 50%;
+  /* Move the element horizontally by 50% of its own width */
+  transform: translateX(-50%);
+  /* Shift the element back by 50% of its own width */
+}
+
+.horizontal-effect-gsp {
+  overflow: hidden;
+}
+
+.horizontal-effect-gsp .wrapper {
+  display: flex;
+}
+
+.horizontal-effect-gsp .horizontal-content {
   font-size: clamp(8rem, 15vw, 16rem);
   line-height: 1;
   font-weight: 900;
 }
 
-.long-text-gsp .wrapper {
-  display: flex;
+/* In case there are images */
+
+.horizontal-effect-gsp img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
+/*--------------*/
+
+/* IN case there are list*/
+
+.horizontal-effect-gsp ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-effect-gsp li {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  /* Adjust as needed */
+}
+
+/*------------------------*/
 
 /* -----------------------------------------------*/
 
 /* Specific styles for elements within .gallery-gsp */
 
+.scroll-container {
+  position: relative;
+  width: 100%;
+  height: 200vh;
+  /* Set the height of the larger div */
+  overflow-y: hidden;
+}
+
+.scroll-content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* Position the inner div at the center horizontally */
+  transform: translateX(-50%);
+  width: 50px;
+  height: 200px;
+  /* Set the height of the inner div */
+  background-color: #f00;
+}
+
+/*_____________________________________________ */
+
 .gallery-gsp {
   display: flex;
   flex-direction: row-reverse;
+  position: sticky;
+  place-items: center;
 }
 
 .gallery-gsp ul {
@@ -1982,99 +2088,30 @@ select {
 
 /*_____________________________________________*/
 
-/*--------------------------------------*/
+/* -----------------------------------------------*/
 
-/* TEXT REVEAL */
+/* text reveal */
 
-.text-reveal .controls {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 100px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: hsl(0 0% 90%);
-  color: hsl(0 0% 10%);
+.text-effect h1 {
+  position: relative;
+  font-size: 5vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-.text-reveal p {
-  resize: both;
-  max-width: 70vw;
-  overflow: hidden;
-  padding: 10ch;
-  margin: 0;
+.text-effect .box {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  height: 1vw;
+  z-index: -1;
 }
 
-.text-reveal p > span {
-  outline-color: hsl(10 80% 50%);
-  outline-offset: 1ch;
-  font-size: clamp(3rem, 4vw + 1rem, 10rem);
-  color: var(--color);
-  text-decoration: none;
-  background-image:
-      /* First one is the highlight */
-      linear-gradient(90deg, transparent calc(100% - 8ch), var(--accent) calc(100%  - 8ch)),
-      linear-gradient(90deg, var(--fill), var(--fill)),
-      linear-gradient(90deg, var(--underline-color), var(--underline-color));
-  background-size:
-      var(--underline-block-width) var(--underline-width),
-      var(--underline-block-width) var(--underline-width),
-      100% var(--underline-width);
-  background-repeat: no-repeat;
-  background-position-x: 0;
-  background-position-y: 100%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: var(--finish-fill);
-}
-
-.text-reveal {
-  height: 200vh;
-}
-
-.text-reveal section {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  place-items: center;
-}
-
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .text-reveal {
-      view-timeline-name: --section;
-    }
-
-    .text-reveal p > span {
-      background-position-x:
-         calc(var(--underline-block-width) * -1),
-         calc(var(--underline-block-width) * -1),
-         0;
-      color: transparent;
-      animation-name: fill-up, color-in;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-      animation-timeline: --section;
-      animation-range: entry 100% cover 50%, cover 50% exit 0%;
-    }
-
-    @keyframes fill-up {
-      to {
-        background-position-x: 0, 0, 0;
-      }
-    }
-
-    @keyframes color-in {
-      to {
-        color: var(--finish-fill);
-      }
-    }
-  }
+.text-effect .hi {
+  display: inline-block;
+  background: mediumspringgreen;
+  padding: 0 0.5rem;
+  /* Add padding to separate text from edges */
 }
 
 /*________________________________________________*/
