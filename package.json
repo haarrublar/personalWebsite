@@ -3,6 +3,8 @@
     "dev": "tailwindcss -i static/css/tw/tailwind-input.css -o static/css/base/main.css --watch"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "tailwindscss": "^0.3.0"
   },
   "dependencies": {
