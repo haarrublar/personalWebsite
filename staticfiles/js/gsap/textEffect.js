@@ -44,70 +44,88 @@ gsap.to('.hi', {
 });
 
 // Update words array based on input text
-let words = [];
-let currentWordIndex = 0;
-let currentCharIndex = 0;
+let allWords = [];
+let currentWordIndices = [];
+let currentCharIndices = [];
 let isRevealing = true;
 
 // Function to update the words array based on the input text
 function updateWords() {
-  // Get the text content of the '.text' element and trim any leading or trailing whitespace
-  const textContent = document.querySelector('.text').textContent.trim();
-  // Check if the textContent is not empty
-  if (textContent) {
-    // Clear the existing words array by setting its length to 0
-    words.length = 0;
-    // Split the textContent into an array of words using newline character '\n' as the separator
-    // Iterate over each word in the array and trim any leading or trailing whitespace before pushing it to the words array
-    textContent.split('\n').forEach(word => words.push(word.trim()));
-  }
+  // Get all '.text' elements and iterate over them
+  const textElements = document.querySelectorAll('.text');
+  allWords = [];
+  currentWordIndices = [];
+  currentCharIndices = [];
+
+  textElements.forEach((textElement, index) => {
+    const textContent = textElement.textContent.trim();
+    if (textContent) {
+      const words = textContent.split('\n').map(word => word.trim());
+      allWords.push(words);
+      currentWordIndices.push(0);
+      currentCharIndices.push(0);
+    }
+  });
 }
 
-updateWords(); // Initial update
+updateWords();
 
-document.querySelector('.text').addEventListener('input', updateWords); // Update
-
+// Initial update
+const textElements = document.querySelectorAll('.text');
+textElements.forEach(textElement => {
+  textElement.addEventListener('input', updateWords);
+});
 
 // Function to reveal text
 function revealText() {
-  const currentWord = words[currentWordIndex];
-  const text = document.querySelector('.text');
-  const cursor = document.querySelector('.cursor');
+  const textElements = document.querySelectorAll('.text');
+  const cursorElements = document.querySelectorAll('.cursor');
 
-  if (currentCharIndex <= currentWord.length) {
-    text.textContent = currentWord.slice(0, currentCharIndex);
-    cursor.textContent = '_';
-    currentCharIndex++;
-  } else {
-    text.textContent = currentWord;
-    cursor.textContent = '';
-    isRevealing = false; // Switch to unrevealing mode
-  }
+  textElements.forEach((textElement, index) => {
+    const currentWord = allWords[index][currentWordIndices[index]];
+    const cursor = cursorElements[index];
+
+    if (currentCharIndices[index] <= currentWord.length) {
+      textElement.textContent = currentWord.slice(0, currentCharIndices[index]);
+      cursor.textContent = '_';
+      currentCharIndices[index]++;
+    } else {
+      textElement.textContent = currentWord;
+      cursor.textContent = '';
+      isRevealing = false; // Switch to unrevealing mode
+    }
+  });
 }
 
 // Function to unreveal text
 function unrevealText() {
-  const currentWord = words[currentWordIndex];
-  const text = document.querySelector('.text');
-  const cursor = document.querySelector('.cursor');
+  const textElements = document.querySelectorAll('.text');
+  const cursorElements = document.querySelectorAll('.cursor');
 
-  if (currentCharIndex >= 0) {
-    text.textContent = currentWord.slice(0, currentCharIndex);
-    cursor.textContent = '_';
-    currentCharIndex--;
-  } else {
-    text.textContent = '';
-    cursor.textContent = '';
-    currentWordIndex = (currentWordIndex + 1) % words.length;
-    currentCharIndex = 0;
-    isRevealing = true; // Switch back to revealing mode
-  }
+  textElements.forEach((textElement, index) => {
+    const currentWord = allWords[index][currentWordIndices[index]];
+    const cursor = cursorElements[index];
+
+    if (currentCharIndices[index] >= 0) {
+      textElement.textContent = currentWord.slice(0, currentCharIndices[index]);
+      cursor.textContent = '_';
+      currentCharIndices[index]--;
+    } else {
+      textElement.textContent = '';
+      cursor.textContent = '';
+      currentWordIndices[index] = (currentWordIndices[index] + 1) % allWords[index].length;
+      currentCharIndices[index] = 0;
+      isRevealing = true; // Switch back to revealing mode
+    }
+  });
 }
 
 // Interval for revealing text
 setInterval(() => {
   if (isRevealing) {
-    TweenMax.to('.text', 0.1, { opacity: 1, yoyo: true }); // Add yoyo effect to reveal
+    textElements.forEach(textElement => {
+      TweenMax.to(textElement, 0.1, { opacity: 1, yoyo: true }); // Add yoyo effect to reveal
+    });
     revealText();
   }
 }, 100); // Update text every 1 second for revealing mode
@@ -115,7 +133,9 @@ setInterval(() => {
 // Interval for unrevealing text
 setInterval(() => {
   if (!isRevealing) {
-    TweenMax.to('.text', 0.2, { opacity: 1, yoyo: true }); // Add yoyo effect to unreveal
+    textElements.forEach(textElement => {
+      TweenMax.to(textElement, 0.2, { opacity: 1, yoyo: true }); // Add yoyo effect to unreveal
+    });
     unrevealText();
   }
 }, 200); // Update text every 2 seconds for unrevealing mode

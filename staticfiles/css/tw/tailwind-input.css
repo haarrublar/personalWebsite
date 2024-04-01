@@ -6,41 +6,70 @@
 
 /* -----------------------------------------------*/
 /* LONG TEXT GSAP ANIMATION */
-.long-text-gsp .text {
+:root {
+   --full-vw: 98vw; /* Create a CSS variable to store the full viewport width */
+ }
+
+ .w-screen {
+   width: var(--full-vw); /* Use the CSS variable to set the width */
+   position: relative; /* Add position relative to enable positioning for child elements */
+   left: 50%; /* Move the element horizontally by 50% of its own width */
+   transform: translateX(-50%); /* Shift the element back by 50% of its own width */
+ }
+
+ .horizontal-effect-gsp {
+   overflow: hidden;
+ }
+
+ .horizontal-effect-gsp .wrapper {
+   display: flex;
+ }
+
+ .horizontal-effect-gsp .horizontal-content {
    font-size: clamp(8rem, 15vw, 16rem);
    line-height: 1;
    font-weight: 900;
-   width: 100%; /* Ensure the text fills the container width */
-}
+ }
 
-.long-text-gsp .wrapper {
+/* In case there are images */
+.horizontal-effect-gsp img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+ }
+ /*--------------*/
+
+ /* IN case there are list*/
+ .horizontal-effect-gsp ul {
    display: flex;
-   align-items: center;
-   height: 100%;
-}
-
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .horizontal-effect-gsp li {
+   flex: 0 0 auto;
+   margin-right: 1rem; /* Adjust as needed */
+ }
+/*------------------------*/
 
 /* -----------------------------------------------*/
 /* Specific styles for elements within .gallery-gsp */
 
-.scroll-container {
+.outer-gsap {
+   height: 100vh;
    position: relative;
+   background-color: #f0f0f0;
+ }
+ 
+ .outer-gsap .inner-gsap {
+   height: 20px;
    width: 100%;
-   height: 200vh; /* Set the height of the larger div */
-   overflow-y: hidden;
-}
-
-.scroll-content {
+   background-color: #333;
    position: absolute;
    top: 0;
-   left: 50%; /* Position the inner div at the center horizontally */
-   transform: translateX(-50%);
-   width: 50px;
-   height: 200px; /* Set the height of the inner div */
-   background-color: #f00;
-}
-
-
+   left: 0;
+ }
 
 /*_____________________________________________ */
 
@@ -83,7 +112,7 @@
 /* text reveal */
 .text-effect h1 {
    position: relative;
-   font-size: 3vw;
+   font-size: 5vw;
    overflow-x: hidden;
    overflow-y: hidden;
  }
@@ -171,8 +200,8 @@
 
 
 .content {
-   margin-left: 5%;
-   margin-right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .container-content {

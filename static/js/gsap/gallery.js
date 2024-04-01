@@ -1,12 +1,17 @@
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to('.scroll-content', {
-  y: () => -(document.querySelector('.scroll-content').offsetHeight - document.querySelector('.scroll-container').offsetHeight),
-  ease: 'none',
+gsap.to('.scroll-children', {
+  y: () => document.querySelector('.scroll-parent').offsetHeight - document.querySelector('.scroll-children').offsetHeight,
+  // ease: 'none',
+  duration: 3,
   scrollTrigger: {
-      trigger: '.scroll-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: true
+    trigger: '.scroll-parent',
+    start: 'top 85%',
+    end: 'bottom 25%',
+    scrub: true,
+    // markers: {
+    //   start: () => document.querySelector('.scroll-parent'),
+    //   end: () => document.querySelector('.scroll-children')
+    // }
   }
 });

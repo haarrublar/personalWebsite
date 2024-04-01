@@ -8,10 +8,9 @@ elements.forEach(element => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: element,
-            start: 'top 90%',
-            end: 'bottom 10%',
-            scrub: true,
-            markers: true,
+            start: 'top 100%',
+            end: 'bottom 0%',
+            scrub: true
         },
     });
 
@@ -25,7 +24,7 @@ elements.forEach(element => {
         tl.fromTo(
             content,
             { x: '-100%' },
-            { x: '0%', duration: 1 }
+            { x: '0%', duration: 3 }
         );
     }
 });
