@@ -1,0 +1,21 @@
+<div class="pagination mt-3 mb-4">
+    <div class="grid gap-x-0 grid-cols-3 step-links">
+        <div class="order-1 flex justify-end">
+            {% if page.has_previous %}
+            <a href="?page={{ page.previous_page_number }}" class="text-primary-700">
+                <i class="fa-solid fa-angle-left fa-lg"></i><i class="fa-solid fa-angle-left"></i> Previous
+            </a>
+            {% endif %}
+        </div>
+        <div class="order-2 mx-2">
+            Page {{ page.number }} of {{ page.paginator.num_pages}}
+        </div>
+        <div class="order-3 flex justify-start">
+            {% if page.has_next %}
+            <a href="?page={{ page.next_page_number }}" class="text-primary-700">
+                Next <i class="fa-solid fa-angle-right"></i><i class="fa-solid fa-angle-right fa-lg"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

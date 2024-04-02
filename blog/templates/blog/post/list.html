@@ -43,14 +43,16 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptatem veniam voluptatibus ea harum dolore. Consequuntur in maiores voluptatibus possimus pariatur harum rerum magni asperiores ea, repellat accusamus adipisci. Error?
                             </p>
                             <a class="mt-auto card-text">
-                                Read more &rarr;
+                                Read more <i class="fa-solid fa-arrow-right-long"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-
             
+            <div class="flex justify-center items-center">
+                {% include 'paginator.html' with page=posts%}
+            </div>
         </div>
     </div>
 {% endblock  %}
