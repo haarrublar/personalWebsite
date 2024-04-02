@@ -3,6 +3,17 @@
 @import 'tailwindcss/utilities';
 
 
+@layer base {
+   body {
+     @apply font-Noto;
+   }
+ }
+
+ /* avoid p tags newline or breakline inside list */
+ li p {
+   display: inline;
+ }
+
 /* -------------------------------------------*/
 /* Paginator */
 

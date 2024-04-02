@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
@@ -16,8 +16,11 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
-      fontSize : {
-        '1xl' : '1.75rem',
+      fontSize: {
+        '1xl': '1.75rem',
+      },
+      fontFamily: {
+        Noto: ["Noto Sans, sans-serif"],
       },
       colors: {
         primary: colors.pink,
@@ -75,7 +78,7 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
-    plugin(function({ addUtilities, theme }) {
+    plugin(function ({ addUtilities, theme }) {
       const newUtilities = {
         '.lowercase': {
           textTransform: 'lowercase',
@@ -88,11 +91,11 @@ module.exports = {
           fontWeight: '600',
           textDecoration: 'none',
           '&:hover': {
-            color: theme('colors.gray.800'), 
+            color: theme('colors.gray.800'),
           },
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
     }),
   ],
-}
+};

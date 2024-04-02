@@ -639,6 +639,10 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
+body {
+  font-family: Noto Sans, sans-serif;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1528,6 +1532,14 @@ select {
   flex-grow: 1;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1803,11 +1815,6 @@ select {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1949,6 +1956,12 @@ select {
 
 .title-link:hover {
   color: #1f2937;
+}
+
+/* avoid p tags newline or breakline inside list */
+
+li p {
+  display: inline;
 }
 
 /* -------------------------------------------*/
