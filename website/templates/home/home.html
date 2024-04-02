@@ -11,12 +11,13 @@
 
 <!-- Main Content Block -->
 {% block content %}
-<div class="max-w-screen-lg md:flex mx-auto">
-   <div class="md:w-1/3 p-2 md:flex md:justify-center">
-      {% include 'home/author_card.html' %}
-     <!-- <AuthorCard /> -->
-   </div>
-   <div class="md:w-2/3 px-8 divide-y-2 divide-gray-200">
+<div class="md:flex">
+  <div class="md:w-1/3 py-4 md:flex md:justify-center">
+    {% include 'home/author_card.html' %}
+    <!-- <AuthorCard /> -->
+  </div>
+  <div class="hidden md:block" style="width: 2rem;"></div> <!-- Spacer -->
+  <div class="md:w-2/3 px-0 md:px-8 divide-y-2 divide-gray-200">
     <div class="my-6">
       {% include 'home/author_intro.html' %}
     </div>
@@ -26,6 +27,6 @@
     <div class="my-6">
       {% include 'home/timeline/timeline.html' %}
     </div>
-   </div>
- </div>
+  </div>
+</div>
 {% endblock %}

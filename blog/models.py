@@ -58,9 +58,9 @@ class Post(models.Model):
         """
         Meta-class of Post class setting an ordering of the post based on the data of creation and setting indexes to the post for enhancing searching (higher search speed, lower read speed)
         """
-        ordering = ['-created']
+        ordering = ['-publish']
         indexes = [
-            models.Index(fields=['-created'])
+            models.Index(fields=['-publish'])
         ]
 
     def __str__(self):
@@ -73,4 +73,4 @@ class Post(models.Model):
         return reverse('blog:post_detail',args=[self.publish.year,
                                                 self.publish.month,
                                                 self.publish.day,
-                                                self.slug,])
+                                                self.slug])

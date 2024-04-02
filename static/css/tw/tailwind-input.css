@@ -118,40 +118,51 @@
 
 
   
-
+.accordion-body {
+   padding-left: 0.75rem/* 12px */;
+   padding-right: 0.75rem/* 12px */
+}
 
 
 .content {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-.container-content {
    margin-left: 5%;
    margin-right: 5%;
 }
 
-
-@media (min-width: 768px) {
-   /* Medium screens and larger (tablets and computers) */
-   .container-content {
-       margin-left: 15%;
-       margin-right: 15%;
-   }
-}
 
 .container-navbar {
    margin-left: 3%;
    margin-right: 3%;
 }
 
+
+
 @media (min-width: 768px) {
    /* Medium screens and larger (tablets and computers) */
    .container-navbar {
-       margin-left: 8%;
-       margin-right: 8%;
+      margin-left: 8%;
+      margin-right: 8%;
+   }
+   .content-aux {
+      margin-left: 15%;
+      margin-right: 15%;
    }
 }
+
+
+/* Large screens */
+@media (min-width: 1000px) {
+   .content {
+      margin-left: 25%;
+      margin-right: 25%;
+   }
+   .content-aux {
+      margin-left: 0%;
+      margin-right: 0%;
+   }
+ }
+
+
 
 .footer-modification {
     padding-top: 2rem;
