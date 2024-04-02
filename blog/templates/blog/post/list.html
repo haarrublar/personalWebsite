@@ -1,58 +1,113 @@
 {%extends 'main.html' %}
 {% load static %}
-
+{% load blog_tags %}
 
 {% block content %}
-<div class="content-aux">
+<div>
     <div class="divide-y-2 divide-gray-200 dark:text-gray-100">
         <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-            <h1 class="prose text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                Latest
-            </h1>
+            <h1 class="prose">
+                <a class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 hover:text-primary-500 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14" href="{% url 'blog:post_list' %}">
+                    Latest
+                </a>
+            </h1>            
+            {% if tag %}
+            <h2 class="prose text-xl font-semibold text-gray-900 dark:text-gray-100">
+                Post tagged with "<span class="text-primary-500 font-bold">{{ tag.name }}</span>"
+            </h2>
+            {% endif %}
         </div>
     
-
-        {% for post in posts %}
-    
-            <!-- <hr class="border-4" style="height: 40px;"/> -->
-            <div class="grid md:grid-cols-2 py-8">
-                <div class="hidden md:block">
-                    <img src="{% static 'media/exm1.jpg' %}" class="img-fluid shadow-xl
-                     mx-auto" alt="..." style="height: 250px">
+    <div class="md:flex">
+        <div class="hidden md:w-1/3 md:flex md:justify-center">
+            <div class="w-full my-6 dark:bg-gray-800 bg-gray-50 flex justify-start">
+                <div class="m-2">
+                    <div class="mt-2 mb-3">
+                        <h1 class="text-primary-500 prose text-xl font-extrabold leading-9 tracking-tight uppercase">
+                            <a href="{% url 'blog:post_list' %}">
+                                All post
+                            </a>
+                        </h1>
+                        <p>
+                            I have been written {% total_post %} post and counting!
+                        </p>
+                        <h1 class="text-primary-500 prose text-xl font-extrabold leading-9 tracking-tight uppercase">
+                            <a href="{% url 'blog:post_list' %}">
+                                Latest Post
+                            </a>
+                        </h1>
+                        {% show_latest_posts 3 %}
+                    </div>
+                    <ul class="tree">
+                        <li>
+                            <details open>
+                                <summary class="text-primary-500 font-bold uppercase">
+                                    Tags
+                                </summary>
+                                <ul class="text-sm">
+                                {% for tag in all_tags %}
+                                    <li>
+                                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                                            {{ tag.name }} (<span class="text-primary-500">{{ tag.tag_count }}</span>) 
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <div class="card-body flex flex-column align-items-start prose" style="height: 100%; padding: 0px; margin: 0px;">
-                        <div>
+            </div> 
+        </div>
+        <div class="hidden md:block" style="width: 2rem;"></div> <!-- Spacer -->
+        <div class="md:w-2/3 px-0 md:px-8 divide-y-2 divide-gray-200">
+            {% for post in posts %}
+                <div class="grid md:grid-cols-1 my-6">
+                    <div class="my-4">
+                        <div class="card-body flex flex-column align-items-start prose" style="height: 100%; padding: 0px; margin: 0px;">
                             <div>
-                                <p class="my-0  text-gray-500 dark:text-gray-400">
-                                    {{ post.created|date:"F j, Y"  }} 
-                                </p>
+                                <div>
+                                    <p class="my-0  text-gray-500 dark:text-gray-400">
+                                        {{ post.created|date:"F j, Y"  }} 
+                                    </p>
+                                </div>
+                                <h2 class="card-title mb-0 mt-3 title-link text-gray-900 dark:text-gray-100">
+                                    {{ post.title }}
+                                </h2>
+                                <div class="card-text uppercase" style="display: inline;">
+                                    {% for tag in post.tags.all %}
+                                    <small>
+                                        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                                            {{ tag.name }}{% if not forloop.last %}<span class="text-gray-900 dark:text-gray-100">,</span>{% endif %}
+                                        </a>
+                                    </small>
+                                    {% endfor %}
+                                </div>
+                                <div class="hidden md:block w-3/5 mx-auto">
+                                    <img src="{% static 'media/exm2.jpg' %}" class="img-fluid shadow-xl" alt="...">
+                                </div>
+                                <div class="text-gray-500 dark:text-gray-400 text-justify">
+                                    <p>
+                                        {{ post.summary|linebreaks|safe }}
+                                    </p>
+                                </div>
                             </div>
-                            <h2 class="card-title mb-0 mt-3 title-link text-gray-900 dark:text-gray-100">
-                                {{ post.title }}
-                            </h2>
-                            <a class="card-text uppercase">
+                            <div class="mt-auto">
                                 <small>
-                                    {{ post.keywords }}
+                                    <a href="{{ post.get_absolute_url }}" class="mt-auto card-text">
+                                        Read more <i class="fa-solid fa-arrow-right-long"></i>
+                                    </a>
                                 </small>
-                            </a>
-                            <p class="text-gray-500 dark:text-gray-400 text-justify">
-                                {{ post.body|linebreaks|safe }}
-                            </p>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="{{ post.get_absolute_url }}" class="mt-auto card-text">
-                                Read more <i class="fa-solid fa-arrow-right-long"></i>
-                            </a>
-                        </div>
+                            </div>
+                    </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-        
-        <div class="flex justify-center items-center">
-            {% include 'paginator.html' with page=posts%}
+            {% endfor %}
         </div>
+    </div>
+        
+    <div class="flex justify-center items-center">
+        {% include 'paginator.html' with page=posts%}
     </div>
 </div>
 {% endblock  %}

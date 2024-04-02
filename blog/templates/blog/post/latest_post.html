@@ -1,0 +1,11 @@
+<ul class="list-disc list-inside">
+    {% for post in latest_post %}
+    <li class="ml-0 pl-0">
+        <small>
+            <a href="{{  post.get_absolute_url }}">
+                {{ post.title|truncatewords:6|linebreaks }}
+            </a>
+        </small>
+    </li>
+    {% endfor %}
+</ul>

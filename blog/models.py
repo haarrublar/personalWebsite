@@ -8,6 +8,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(models.Manager):
@@ -43,7 +44,7 @@ class Post(models.Model):
         related_name='blog_posts'
     )
     summary = models.TextField(max_length=250)
-    keywords = models.TextField()
+    tags = TaggableManager()
     body = models.TextField()
     status = models.CharField(
         max_length=2,

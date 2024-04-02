@@ -3,14 +3,24 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, EmptyPage
+from taggit.models import Tag
+from django.db.models import Count
 
 
-def post_list(request):
+def post_list(request, tag_slug=None):
     """
     Create a post list accessing to the Post in the DB using the Manager for the Post Class PublishedManager.
     """
     # call the Published manager using the object within the Post class.
     post_list = Post.published.all()
+
+    all_tags = Tag.objects.annotate(tag_count=Count('post')).order_by('-tag_count')
+
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        post_list = post_list.filter(tags__in=[tag])
+
     paginator = Paginator(post_list,5)
     page_number = request.GET.get('page',1)
 
@@ -22,7 +32,9 @@ def post_list(request):
 
     return render(request,
                   'blog/post/list.html',
-                  {'posts': posts}
+                  {'posts': posts,
+                   'tag': tag,
+                   'all_tags': all_tags}
     )
 
 def post_detail(request, year, month, day, post):

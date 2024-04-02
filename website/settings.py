@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'website',
     'blog.apps.BlogConfig',
     'compressor',
-    'livereload'
+    'livereload',
+    'taggit'
 ]
 
 MIDDLEWARE = [
@@ -90,13 +91,13 @@ TEMPLATES = [
 ]
 
 
-TEMPLATE_DIRS = [
-    Path('templates') / 'home',
-    Path('templates') / 'navbar',
-    Path('templates') / 'about',
-    Path('templates') / 'resume',
-    Path('templates') / 'footer',
-]
+# TEMPLATE_DIRS = [
+#     Path('templates') / 'home',
+#     Path('templates') / 'navbar',
+#     Path('templates') / 'about',
+#     Path('templates') / 'resume',
+#     Path('templates') / 'footer',
+# ]
 
 
 WSGI_APPLICATION = 'website.wsgi.application'
