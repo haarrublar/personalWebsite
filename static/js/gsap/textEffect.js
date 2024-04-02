@@ -35,9 +35,9 @@ boxTl.to('.box', {
 
 // Text animation
 gsap.to('.hi', {
-  duration: 2,
-  color: 'white', // Change text color to white
-  backgroundColor: 'mediumspringgreen', // Change background color to mediumspringgreen
+  duration: 1,
+  color: 'rgb(107, 114, 128)', // Change text color to white
+  backgroundColor: 'rgb(209, 213, 219)', // Change background color to mediumspringgreen
   yoyo: true, // Use yoyo effect
   repeat: -1, // Repeat indefinitely
   ease: 'power1.inOut' // Use power1.inOut easing function

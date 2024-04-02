@@ -1524,10 +1524,6 @@ select {
   width: 100%;
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
 .flex-grow {
   flex-grow: 1;
 }
@@ -2008,7 +2004,7 @@ select {
 
 .text-effect .hi {
   display: inline-block;
-  background: mediumspringgreen;
+  background: rgb(209, 213, 219);
   padding: 0 0.5rem;
   /* Add padding to separate text from edges */
 }

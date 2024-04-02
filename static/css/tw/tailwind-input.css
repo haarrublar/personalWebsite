@@ -47,7 +47,7 @@
  }
  .text-effect .hi {
    display: inline-block;
-   background: mediumspringgreen;
+   background: rgb(209, 213, 219);
    padding: 0 0.5rem; /* Add padding to separate text from edges */
  }
  
