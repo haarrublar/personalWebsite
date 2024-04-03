@@ -4,7 +4,7 @@
 
 {% block content %}
 <div>
-    <div class="divide-y-2 divide-gray-200 dark:text-gray-100">
+    <div class="border-b-2 border-gray-200 dark:border-gray-100">
         <div class="space-y-2 pb-8 pt-6 md:space-y-5">
             <h1 class="prose">
                 <a class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 hover:text-primary-500 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14" href="{% url 'blog:post_list' %}">
@@ -17,28 +17,29 @@
             </h2>
             {% endif %}
         </div>
+    </div>
     
     <div class="md:flex">
         <div class="hidden md:w-1/3 md:flex md:justify-center">
-            <div class="w-full my-6 dark:bg-gray-800 bg-gray-50 flex justify-start">
-                <div class="m-2">
-                    <div class="mt-2 mb-3">
+            <div class="w-full flex justify-start my-6">
+                <div class="lg:m-3">
+                    <div class="mt-2 dark:bg-gray-800 bg-gray-50 md:p-3 lg:p-4">
                         <h1 class="text-primary-500 prose text-xl font-extrabold leading-9 tracking-tight uppercase">
                             <a href="{% url 'blog:post_list' %}">
                                 All post
                             </a>
                         </h1>
                         <p>
-                            I have been written {% total_post %} post and counting!
+                            I have been written <span class="text-primary-500 ">{% total_post %}</span> post and counting!
                         </p>
-                        <h1 class="text-primary-500 prose text-xl font-extrabold leading-9 tracking-tight uppercase">
+                        <h1 class="text-primary-500 prose text-xl font-extrabold leading-9 tracking-tight uppercase mt-6">
                             <a href="{% url 'blog:post_list' %}">
                                 Latest Post
                             </a>
                         </h1>
                         {% show_latest_posts 3 %}
                     </div>
-                    <ul class="tree">
+                    <ul class="tree dark:bg-gray-800 bg-gray-50 md:py-4 lg:p-4">
                         <li>
                             <details open>
                                 <summary class="text-primary-500 font-bold uppercase">
@@ -60,7 +61,7 @@
             </div> 
         </div>
         <div class="hidden md:block" style="width: 2rem;"></div> <!-- Spacer -->
-        <div class="md:w-2/3 px-0 md:px-8 divide-y-2 divide-gray-200">
+        <div class="md:w-2/3 grid grid-cols-1 place-items-center px-0 md:px-8 divide-y-2 divide-gray-200">
             {% for post in posts %}
                 <div class="grid md:grid-cols-1 my-6">
                     <div class="my-4">
@@ -88,7 +89,7 @@
                                 </div>
                                 <div class="text-gray-500 dark:text-gray-400 text-justify">
                                     <p>
-                                        {{ post.summary|linebreaks|safe }}
+                                        {{ post.summary|markdown|safe }}
                                     </p>
                                 </div>
                             </div>

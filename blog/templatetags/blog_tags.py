@@ -1,5 +1,10 @@
 from django import template
 from ..models import Post
+from django.template.defaultfilters import stringfilter
+from django.utils.safestring import mark_safe
+
+import pypandoc
+import markdown
 
 register = template.Library()
 @register.simple_tag
@@ -10,3 +15,9 @@ def total_post():
 def show_latest_posts(count=2):
     latest_post = Post.published.order_by('-publish')[:count]
     return {'latest_post': latest_post}
+
+@register.filter(name='markdown')
+@stringfilter
+def render_markdown(value):
+    md = markdown.Markdown(extensions=["extra","mdx_math"])
+    return mark_safe(md.convert(value))

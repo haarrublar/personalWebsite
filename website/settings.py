@@ -40,7 +40,8 @@ DEBUG = True
 """
 Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
 """
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+SECURE_SSL_REDIRECT = False
 
 
 # Application definition
@@ -58,7 +59,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'compressor',
     'livereload',
-    'taggit'
+    'taggit',
+    'pypandoc'
 ]
 
 MIDDLEWARE = [

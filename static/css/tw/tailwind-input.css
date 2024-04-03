@@ -3,16 +3,82 @@
 @import 'tailwindcss/utilities';
 
 
+
+/* FONT WHOLE DOCUMENT*/
 @layer base {
    body {
      @apply font-Noto;
    }
  }
+/*________________________*/
+
+
+/* DOCUMENT GENERAL STYLE*/
+.content {
+   margin-left: 5%;
+   margin-right: 5%;
+}
+
+.container-navbar {
+   margin-left: 3%;
+   margin-right: 3%;
+}
+
+@media (min-width: 768px) {
+   /* Medium screens and larger (tablets and computers) */
+   .container-navbar {
+      margin-left: 8%;
+      margin-right: 8%;
+   }
+   .content-aux {
+      margin-left: 15%;
+      margin-right: 15%;
+   }
+}
+
+@media (min-width: 1024px) {
+   .content {
+      margin-left: 10%;
+      margin-right: 10%;
+   }
+   .content-aux {
+      margin-left: 0%;
+      margin-right: 0%;
+   }
+ }
+
+ @media (min-width: 1030px) {
+   .content {
+      margin-left: 20%;
+      margin-right: 20%;
+   }
+   .content-aux {
+      margin-left: 0%;
+      margin-right: 0%;
+   }
+ }
+
+.footer-modification {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    border-top: 1.5px solid black;
+    margin-top: 4rem;
+ }
+ /*______________________________________________*/
+
+
+
+
 
  /* avoid p tags newline or breakline inside list */
  li p {
    display: inline;
  }
+/*____________________________________*/
+
+
+
+
 
 /* -------------------------------------------*/
 /* Paginator */
@@ -30,7 +96,7 @@
 /* -------------------------------------------------*/
 /* TREE LAYOUT IN OL LIST */
 .tree{
-   --spacing : 1.5rem;
+   --spacing : 1rem;
    --radius  : 10px;
  }
 
@@ -90,8 +156,6 @@
 
 
 
-
-/* -----------------------------------------------*/
 /* LONG TEXT GSAP ANIMATION */
 :root {
    --full-vw: 98vw; /* Create a CSS variable to store the full viewport width */
@@ -103,10 +167,10 @@
    left: 50%; /* Move the element horizontally by 50% of its own width */
    transform: translateX(-50%); /* Shift the element back by 50% of its own width */
  }
+/*____________________________________*/
 
 
-/* -----------------------------------------------*/
-/* text reveal */
+/* TEXT REVEAL */
 .text-effect h1 {
    position: relative;
    /* font-size: 5vw; */
@@ -125,10 +189,7 @@
    background: rgb(209, 213, 219);
    padding: 0 0.5rem; /* Add padding to separate text from edges */
  }
- 
-
-
-/*________________________________________________*/
+/*_____________________________________*/
 
 
 
@@ -179,123 +240,23 @@
  }
 
 
+ /* BOOTSTRAP ACCORDION MODIFICATION */
 .accordion-button, .accordion-button:not(.collapsed), .accordion-item {
    background-color: inherit;
 }
- 
+
 
 .dark .accordion-button:after {
    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
+
 .dark .accordion-button:not(.collapsed):after{
    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
-
-
   
 .accordion-body {
    padding-left: 0.75rem/* 12px */;
    padding-right: 0.75rem/* 12px */
 }
-
-
-.content {
-   margin-left: 5%;
-   margin-right: 5%;
-}
-
-
-.container-navbar {
-   margin-left: 3%;
-   margin-right: 3%;
-}
-
-
-
-@media (min-width: 768px) {
-   /* Medium screens and larger (tablets and computers) */
-   .container-navbar {
-      margin-left: 8%;
-      margin-right: 8%;
-   }
-   .content-aux {
-      margin-left: 15%;
-      margin-right: 15%;
-   }
-}
-
-
-/* Large screens */
-@media (min-width: 1000px) {
-   .content {
-      margin-left: 25%;
-      margin-right: 25%;
-   }
-   .content-aux {
-      margin-left: 0%;
-      margin-right: 0%;
-   }
- }
-
-
-
-.footer-modification {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    border-top: 1.5px solid black;
-    margin-top: 4rem;
- }
- /* -------------------------------------------------------*/
- 
- 
- /* Auxiliary navbar style from the aux_navbar.html page.  */
- /* -------------------------------------------------------*/
- .navbar-padding {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
- }
- .navbar-brand {
-    color: black;
-    font-size: 28px;
- }
- .colbutton {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
- }
- .colicon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
- }
- /* -------------------------------------------------------*/
- 
- 
- 
- /* Resume content style from the resumen_content.html page.  */
-
- ul.no-bullets {
-    list-style-type: none;
-    margin-left: 2rem;
-    padding: 0;
- }
- /* -------------------------------------------------------*/
- 
- 
- 
- 
- /* Main navbar style attached in the hero.html from the main_navbar.html page.  */
- /* -------------------------------------------------------*/
- .navbar-padding {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
- }
- .navbar-brand {
-    color: black;
-    font-size: 28px;
- }
- /* -------------------------------------------------------*/
- 
- 
-
+/*_____________________________________________*/
 
