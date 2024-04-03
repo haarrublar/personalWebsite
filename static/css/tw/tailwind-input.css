@@ -67,6 +67,25 @@
  /*______________________________________________*/
 
 
+ #markdown-content pre {
+   position: relative;
+   padding-top: 30px; /* Space for the button */
+   background-color: transparent; /* Remove background color */
+   border: none; /* Remove border */
+}
+
+#markdown-content pre button {
+   position: absolute;
+   top: 5px; /* Adjust top position as needed */
+   right: 5px; /* Adjust right position as needed */
+   background-color: transparent; /* Remove background color */
+   border: none; /* Remove border */
+   color: inherit; /* Inherit text color */
+   font-size: inherit; /* Inherit font size */
+   cursor: pointer; /* Show pointer cursor */
+   
+
+
 
 
 

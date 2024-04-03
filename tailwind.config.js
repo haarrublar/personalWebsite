@@ -44,13 +44,15 @@ module.exports = {
             'h1,h2': {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
+              color: theme('colors.gray.800'), 
             },
             h3: {
               fontWeight: '600',
+              color: theme('colors.gray.500'), 
             },
-            code: {
-              color: theme('colors.indigo.500'),
-            },
+            // code: {
+            //   color: theme('colors.indigo.500'),
+            // },
             lineHeight: '1.5',
           },
         },
@@ -61,11 +63,17 @@ module.exports = {
               '&:hover': {
                 color: `${theme('colors.primary.400')}`,
               },
-              code: { color: theme('colors.primary.400') },
-              'text-decoration': 'none'
+              // code: { color: theme('colors.primary.400') },
+              // 'text-decoration': 'none'
             },
-            'h1,h2,h3,h4,h5,h6': {
+            'h1, h2': {
+              fontWeight: '700',
+              letterSpacing: theme('letterSpacing.tight'),
               color: theme('colors.gray.100'),
+            },
+            h3: {
+              fontWeight: '600',
+              color: theme('colors.gray.200'), 
             },
             lineHeight: '1.5',
           },

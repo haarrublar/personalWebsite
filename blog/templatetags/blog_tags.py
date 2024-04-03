@@ -19,5 +19,5 @@ def show_latest_posts(count=2):
 @register.filter(name='markdown')
 @stringfilter
 def render_markdown(value):
-    md = markdown.Markdown(extensions=["extra","mdx_math"])
+    md = markdown.Markdown(extensions=["extra","mdx_math","md_in_html"])
     return mark_safe(md.convert(value))

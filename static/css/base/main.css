@@ -951,7 +951,7 @@ body {
 }
 
 .prose :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  color: var(--tw-prose-headings);
+  color: #6b7280;
   font-weight: 600;
   font-size: 1.25em;
   margin-top: 1.6em;
@@ -1002,7 +1002,7 @@ body {
 }
 
 .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  color: #6366f1;
+  color: var(--tw-prose-code);
   font-weight: 600;
   font-size: 0.875em;
 }
@@ -1294,6 +1294,7 @@ body {
 .prose :where(h1,h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   font-weight: 700;
   letter-spacing: -0.025em;
+  color: #1f2937;
 }
 
 .sr-only {
@@ -2046,6 +2047,20 @@ body {
 
 /*______________________________________________*/
 
+#markdown-content pre {
+  position: relative;
+  padding-top: 30px;
+  /* Space for the button */
+}
+
+#markdown-content pre button {
+  position: absolute;
+  top: 5px;
+  /* Adjust top position as needed */
+  right: 5px;
+  /* Adjust right position as needed */
+}
+
 /* avoid p tags newline or breakline inside list */
 
 li p {
@@ -2236,6 +2251,50 @@ li p {
 }
 
 /*_____________________________________________*/
+
+:is(.dark .dark\:prose-invert) {
+  --tw-prose-body: var(--tw-prose-invert-body);
+  --tw-prose-headings: var(--tw-prose-invert-headings);
+  --tw-prose-lead: var(--tw-prose-invert-lead);
+  --tw-prose-links: var(--tw-prose-invert-links);
+  --tw-prose-bold: var(--tw-prose-invert-bold);
+  --tw-prose-counters: var(--tw-prose-invert-counters);
+  --tw-prose-bullets: var(--tw-prose-invert-bullets);
+  --tw-prose-hr: var(--tw-prose-invert-hr);
+  --tw-prose-quotes: var(--tw-prose-invert-quotes);
+  --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
+  --tw-prose-captions: var(--tw-prose-invert-captions);
+  --tw-prose-kbd: var(--tw-prose-invert-kbd);
+  --tw-prose-kbd-shadows: var(--tw-prose-invert-kbd-shadows);
+  --tw-prose-code: var(--tw-prose-invert-code);
+  --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
+  --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
+  --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
+  --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
+}
+
+:is(.dark .dark\:prose-invert) :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #ec4899;
+}
+
+:is(.dark .dark\:prose-invert) :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)):hover {
+  color: #f472b6;
+}
+
+:is(.dark .dark\:prose-invert) :where(h1, h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #f3f4f6;
+}
+
+:is(.dark .dark\:prose-invert) :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+:is(.dark .dark\:prose-invert) {
+  line-height: 1.5;
+}
 
 .hover\:bg-black:hover {
   --tw-bg-opacity: 1;
