@@ -44,6 +44,8 @@ ALLOWED_HOSTS = ['*']
 SECURE_SSL_REDIRECT = False
 
 
+SITE_ID = 1
+
 # Application definition
 """
 All the apps (components) in the project.
@@ -60,7 +62,9 @@ INSTALLED_APPS = [
     'compressor',
     'livereload',
     'taggit',
-    'pypandoc'
+    'pypandoc',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
