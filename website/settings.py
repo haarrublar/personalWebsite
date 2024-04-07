@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'pypandoc',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -111,15 +112,34 @@ WSGI_APPLICATION = 'website.wsgi.application'
 APPEND_SLASH = True
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+"""
+Database by default in DJANGO
+https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+""" 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+"""
+DB Migration
+"""
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': 'sky',
     }
 }
+
+
+
 
 
 # Password validation
