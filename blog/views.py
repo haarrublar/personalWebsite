@@ -6,8 +6,6 @@ from django.core.paginator import Paginator, EmptyPage
 from taggit.models import Tag
 from django.db.models import Count
 
-from .forms import SearchForm
-from django.contrib.postgres.search import SearchVector
 
 
 def post_list(request, tag_slug=None):
@@ -52,7 +50,6 @@ def post_detail(request, year, month, day, post):
                   {'post': post})
 
 
-def post_search(request):
     form = SearchForm()
     query = None
     results = []
