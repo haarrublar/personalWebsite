@@ -1,0 +1,40 @@
+# Django-specific files and directories
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media and static files
+media/
+static/
+mysite_data.json
+node_modules/
+
+# Version control files
+.git/
+.gitignore
+
+# Environment-specific configuration files
+.env
+.venv
+env/
+venv/
+
+# Compiled Python files
+*.py[cod]
+*$py.class
+
+# Log files
+*.log
+*.log.*
+
+# Cached files
+*.pyc
+*.pyo
+*.swp
+*.swo
+
+# API keys and secrets
+*.env
+*.secret
