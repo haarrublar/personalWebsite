@@ -10,7 +10,8 @@
     {% for author in author_info %}
     <p>
       {{ author.author_intro }}
-      <a href="{% url 'about' %}" class="text-primary-700 font-extrabold">
+      <a href="{% url 'pages:about' %}" class="text-primary-700 font-extrabold">
+      <a class="text-primary-700 font-extrabold">
         <i class="fa-solid fa-arrow-right-long"></i>
       </a>
     </p>

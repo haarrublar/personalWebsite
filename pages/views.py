@@ -16,7 +16,7 @@ def home(request):
 
     return render(
         request,
-        'home/homes.html',
+        'home/home.html',
         {
             'author_info': author_info,
             'author_studies': author_studies,
@@ -32,5 +32,5 @@ def home(request):
 def about(request):
     return render(
         request,
-        'about/abouts.html'
+        'about/about.html'
     )

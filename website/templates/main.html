@@ -97,7 +97,7 @@
    <div class="min-h-screen flex flex-col">
       <main class="flex-grow">   
          <header>
-            {% include 'navbar/navbar.html' %}
+            {% include 'navbar.html' %}
          </header>
 
          <div class="content">
@@ -105,7 +105,7 @@
             The personalWebsite core pagination.
             -->
             {% block content %}
-               {% include 'home' %}
+               {% include 'blog' %}
             {% endblock %}
          </div>
       </main>
@@ -113,9 +113,9 @@
       The personalWebsite footer.
       It includes the footer-moditication css style and the footer.html page.
       -->
-      <footer class="mt-auto">
-         {% include 'footer/footer.html' %}
-      </footer>
+      {<footer class="mt-auto">
+         {% include 'footer.html' %}
+      </footer> 
    </div>
 
   <!--
@@ -220,6 +220,7 @@
    -->
    <script src="{% static 'js/twoColumn.js' defer %}"></script>
 
+   <script src="{% static 'js/navbar.js' %}"></script>
 
    <script src="{% static 'js/darkmode.js' %}"></script>
 
