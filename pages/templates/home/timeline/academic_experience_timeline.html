@@ -82,7 +82,7 @@
               </p>
               {% endif %}
               <a href="{{ publication.url }}" class="mb-1 text-lg font-normal text-gray-900 dark:text-white">
-                  {{ publication.title }} <span class="font-semibold text-gray-900 dark:text-white">{{ publication.authors }}</span> <span class="text-gray-900 dark:text-white" style="font-style: italic;">{{ publication.journal }}, Vol. {{ publication.volume }}</span>, {{ publication.year }}
+                  {{ publication.title }} <span class="font-semibold text-gray-900 dark:text-white">{{ publication.participants }}</span> <span class="text-gray-900 dark:text-white" style="font-style: italic;">{{ publication.journal }}, Vol. {{ publication.volume }}</span>, {{ publication.year }}
               </a>
             </li>
             {% endfor %}

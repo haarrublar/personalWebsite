@@ -98,6 +98,7 @@ class Publication(models.Model):
     title = models.CharField(max_length=250)
     participants = models.CharField(max_length=250)
     role = models.CharField(max_length=250,null=True, blank=True)
+    url = models.URLField(max_length=200)
     journal = models.CharField(max_length=250)
     year = models.IntegerField()
 
