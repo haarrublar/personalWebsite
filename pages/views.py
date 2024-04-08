@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import AuthorInfo, AuthorStudies, ExpertiseCategory, ExpertiseTool, WorkExperience, AcademicParticipation, Project, Publication
+from .models import AuthorInfo, AuthorStudies, ExpertiseCategory, ExpertiseTool, WorkExperience, Project, Publication, AcademicParticipation
 
 
 # Create your views here.

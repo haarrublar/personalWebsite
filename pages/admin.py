@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AuthorInfo, AuthorStudies, ExpertiseCategory, ExpertiseTool, WorkExperience, AcademicParticipation, Project, Publication
+from .models import AuthorInfo, AuthorStudies, ExpertiseCategory, ExpertiseTool, WorkExperience, Project, Publication, AcademicParticipation
 
 # Register your models here.
 @admin.register(AuthorInfo)

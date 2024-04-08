@@ -1,9 +1,15 @@
 # Django-specific files and directories
 *.pyc
-__pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+
+# Migrations
+**/migrations/**
+!**/migrations/__init__.py
+
+# __pycache__
+**/__pycache__/
 
 # Media and static files
 media/
