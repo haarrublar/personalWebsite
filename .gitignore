@@ -9,6 +9,7 @@ db.sqlite3-journal
 media/
 static/
 node_modules/
+mysite_data.json
 
 # Version control files
 .git/
