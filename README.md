@@ -128,27 +128,29 @@ python manage.py runserver
 
 1. This command starts the Webpack development server, which watches for changes in your JavaScript and CSS files, and automatically rebuilds them when changes are detected. This is useful for efficient development and instant feedback.
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
+
+   **NOTE**: This command runs the Tailwind CSS development script, which watches for changes in your Tailwind CSS input file (static/css/tw/tailwind-input.css) and automatically compiles it to the output CSS file (static/css/base/main.css) whenever changes are detected. This allows you to work with Tailwind CSS utility classes and see the changes reflected in your application immediately.
 
 2. The `livereload` command watches for changes in your Django project files and automatically reloads the development server when changes are detected, eliminating the need to manually restart the server after each change.
 
-```bash
-python manage.py livereload
-```
+   ```bash
+   python manage.py livereload
+   ```
 
 3. This command starts the Django development server, which serves your web application and makes it accessible at `http://localhost:8000` by default.
 
-```bash
-python manage.py runserver
-```
+   ```bash
+   python manage.py runserver
+   ```
 
 To run the server and access it from other devices on the same network, this command starts the Django development server and binds it to the `0.0.0.0` IP address, allowing other devices on the same network to access the web application by entering the server's IP address and port in their web browsers.
 
-```
-python3 manage.py runserver 0.0.0.0:8000
-```
+   ```
+   python3 manage.py runserver 0.0.0.0:8000
+   ```
 
 Once the server is running, you can explore the different sections of the website, including the blog, about page, timeline, and other content types. The website utilizes Tailwind CSS, Bootstrap, JavaScript, and the GSAP library for styling and interactivity.
 
