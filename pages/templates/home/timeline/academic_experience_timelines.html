@@ -1,0 +1,94 @@
+{% load static %}
+
+
+<div class="opacity-100">
+  <div class="accordion accordion-flush prose" id="accordionWorkExp">
+    <div class="accordion-item" style="margin: 0px !important;">
+      <h2 class="accordion-button collapsed text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100" type="button" data-bs-toggle="collapse" data-bs-target="#flush-academicParticipation" aria-expanded="false" aria-controls="flush-academicParticipation" style="margin: 0px;">
+       Academic Participation
+      </h2>
+      <div id="flush-academicParticipation" class="accordion-collapse collapse" data-bs-parent="#accordionWorkExp">
+        <div class="accordion-body">
+          <ol class="relative border-l border-gray-200 dark:border-gray-700" style="list-style-type: none;">
+          {% for participation in author_academic_participation %}
+            <li class="mb-10">
+              <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+              <i class="fa-solid fa-book-open-reader fa-sm dark:text-white"></i>
+              </span>
+              <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
+                {{ participation.role }}
+              </h3>
+              <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
+                <span class="font-semibold text-gray-900 dark:text-white">{{ participation.year }}</span>
+              </p>
+              <div class="ml-2">
+                <p class="mb-4 font-normal text-gray-500 dark:text-gray-400">
+                  {{ participation.event }}
+                </p>
+              </div>
+            </li>
+          {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-button collapsed text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100" type="button" data-bs-toggle="collapse" data-bs-target="#flush-projects" aria-expanded="false" aria-controls="flush-projects" style="margin: 0px !important;">
+        Projects
+      </h2>
+      <div id="flush-projects" class="accordion-collapse collapse" data-bs-parent="#accordionWorkExp">
+        <div class="accordion-body">
+          <ol class="relative border-l border-gray-200 dark:border-gray-700" style="list-style-type: none;">
+          {% for project in author_projects %}
+            <li class="mb-10">
+              <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+              <i class="fa-solid fa-thumbtack fa-sm dark:text-white"></i>
+              </span>
+              <h3 class="flex items-center mb-1 text-lg font-normal text-gray-900 dark:text-white ml-2">
+                {{ project.project_name }}
+              </h3>
+              <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
+                <span class="font-semibold text-gray-900 dark:text-white">{{ project.year }}</span>
+              </p>
+              {% if project.skills %}
+              <p class="block mt-4 mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
+                <span class="font-semibold text-gray-900 dark:text-white">
+                  Skills:
+                </span>
+                <span class="text-gray-900 dark:text-white" style="font-style: italic;"> {{ project.skills }}</span>
+              </p>
+              {% endif %}
+            </li>
+          {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-button collapsed text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100" type="button" data-bs-toggle="collapse" data-bs-target="#flush-publications" aria-expanded="false" aria-controls="flush-publications" style="margin: 0px !important;">
+        Publications
+      </h2>
+      <div id="flush-publications" class="accordion-collapse collapse" data-bs-parent="#accordionWorkExp">
+        <div class="accordion-body">
+          <ol class="relative border-l border-gray-200 dark:border-gray-700" style="list-style-type: none;">
+            {% for publication in author_publications %}
+            <li class="mb-10">
+              <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                <i class="fa-solid fa-book-open fa-sm dark:text-white"></i>
+              </span>
+              {% if publication.role %}
+              <p class="font-normal leading-none text-gray-400 dark:text-gray-200 block"> <!-- Added 'block' class -->
+                  {{ publication.role }}
+              </p>
+              {% endif %}
+              <a href="{{ publication.url }}" class="mb-1 text-lg font-normal text-gray-900 dark:text-white">
+                  {{ publication.title }} <span class="font-semibold text-gray-900 dark:text-white">{{ publication.authors }}</span> <span class="text-gray-900 dark:text-white" style="font-style: italic;">{{ publication.journal }}, Vol. {{ publication.volume }}</span>, {{ publication.year }}
+              </a>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

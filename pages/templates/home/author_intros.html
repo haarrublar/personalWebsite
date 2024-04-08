@@ -1,0 +1,19 @@
+{% load static %}
+
+
+<div>
+  <h1
+    class="prose text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+    About me
+  </h1>
+  <div class="mt-8 mb-4 text-gray-500 dark:text-gray-400 text-justify">
+    {% for author in author_info %}
+    <p>
+      {{ author.author_intro }}
+      <a href="{% url 'about' %}" class="text-primary-700 font-extrabold">
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </a>
+    </p>
+    {% endfor %}
+  </div>
+</div>

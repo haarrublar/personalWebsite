@@ -35,6 +35,7 @@ urlpatterns = [
     path('resume/', resume, name='resume'),
     path('footer/', footer, name='footer'),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('pages/', include('pages.urls', namespace='pages')),
     path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
 

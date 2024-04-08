@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'blog.apps.BlogConfig',
+    'pages.apps.PagesConfig',
     'compressor',
     'livereload',
     'taggit',
