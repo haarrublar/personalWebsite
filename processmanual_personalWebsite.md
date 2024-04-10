@@ -1610,6 +1610,90 @@ After a bit of digging around, I found a simple fix. All I had to do was install
 pip install tzdata
 ```
 
+
+Here's a blog-style step-by-step guide on how to recover from a `git reset --hard` operation:
+
+## How to Recover from a `git reset --hard` Operation
+
+We've all been there – you accidentally run `git reset --hard` and suddenly realize that you've lost a significant amount of your commit history. Don't panic! Git provides a way to recover from this situation, and in this blog post, we'll walk through the steps to help you regain your lost commits.
+
+### Step 1: Identify the Commit to Revert the Changes From
+
+The first step is to identify the commit you want to revert to, which should be the last commit before you ran the `git reset --hard` command. You can use the `git reflog` command to view the reference log of your repository, which contains a record of all the commits and operations performed.
+
+```
+git reflog
+```
+
+This will display a list of all the commits and operations performed in your repository. Look for the commit hash that represents the state of your repository just before you ran `git reset --hard`.
+
+For example, let's say the commit hash you want to revert to is `c3c557f`.
+
+### Step 2: Create a New Branch from the Desired Commit
+
+Once you've identified the commit hash you want to revert to, create a new branch from that commit:
+
+```
+git branch restored-branch c3c557f
+```
+
+This will create a new branch called `restored-branch` and set it to the state of your repository at the `c3c557f` commit.
+
+### Step 3: Switch to the Restored Branch
+
+Next, switch to the newly created `restored-branch`:
+
+```
+git checkout restored-branch
+```
+
+You're now working on the `restored-branch`, which contains all the commits up to the point before you ran `git reset --hard`.
+
+### Step 4: (Optional) Push the Restored Branch to GitHub
+
+If you want to check the `restored-branch` on GitHub or any other remote repository, you'll need to push it:
+
+```
+git push -u origin restored-branch
+```
+
+This command will push the `restored-branch` to your remote repository (in this case, `origin`) and set the upstream branch, so you can simply run `git push` for future updates.
+
+### Step 5: Merge the Restored Commits into the Main Branch
+
+Now that you have the `restored-branch` with all the desired commits, you can merge it into your main branch (or any other branch you want):
+
+```
+git checkout main
+git merge restored-branch
+```
+
+This will merge all the commits from the `restored-branch` into your `main` branch, effectively restoring your lost commit history.
+
+### Step 6: Push the Changes to GitHub
+
+If you're working with a remote repository like GitHub, you'll need to push the updated `main` branch:
+
+```
+git push
+```
+
+### Step 7: Clean Up (Optional)
+
+After successfully restoring your commits, you can optionally delete the `restored-branch` locally and remotely:
+
+```
+git branch -d restored-branch
+git push origin --delete restored-branch
+```
+
+These commands will delete the `restored-branch` from your local repository and the remote repository (GitHub, in this case), respectively.
+
+And that's it! By following these steps, you've successfully recovered from the `git reset --hard` operation and restored your lost commit history. Remember, it's always a good practice to be cautious when using destructive Git commands and to create backups or use a separate branch when performing potentially risky operations.
+
+
+
+
 ## Debugging DEV
 
 In separate terminals:
