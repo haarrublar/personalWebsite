@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('author_git_user', models.CharField(max_length=50)),
                 ('author_country', models.CharField(max_length=50)),
                 ('author_photo', models.ImageField(upload_to=None)),
-                ('author_resume', models.CharField()),
+                ('author_resume', models.CharField(max_length=50)),
             ],
         ),
     ]

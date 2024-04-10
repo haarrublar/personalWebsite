@@ -16,6 +16,7 @@ media/
 static/
 mysite_data.json
 node_modules/
+processmanual_personalWebsite.md
 
 # Version control files
 .git/
@@ -26,6 +27,22 @@ node_modules/
 .venv
 env/
 venv/
+
+# Ignore Docker-related files
+.dockerignore
+docker-compose.override.yml
+environment.yml
+postgres_data.json
+sqlite3_data.json
+environment.yml
+
+# Ignore database files
+*.sqlite3
+
+# Ignore other Docker-related files or directories
+.env
+.env.dev
+.env.prod
 
 # Compiled Python files
 *.py[cod]

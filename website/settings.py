@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from django.conf import settings
 
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,25 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3+zu_f&t#opj^_ce#e#54ok^6f-*=d*743qo$2v%e2d_=s@&@f'
 
-# SECURITY WARNING: Do not run with debug turned on in production!
-"""
-Variable to define if the project is being used in a production or development environment.
-Set DEBUG to True for development and False for production.
-
-In production, setting DEBUG to False is crucial for security. With DEBUG set to True, detailed error
-messages are displayed, which can expose sensitive information to attackers. Additionally, other settings
-such as ALLOWED_HOSTS and database settings should be configured properly for production environments.
-"""
-DEBUG = True
-
-
-"""
-Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
-"""
-ALLOWED_HOSTS = ['*']
 SECURE_SSL_REDIRECT = False
 
 
@@ -112,11 +94,35 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 APPEND_SLASH = True
 
+# # SECURITY WARNING: keep the secret key used in production secret!
 
-"""
-Database by default in DJANGO
-https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-""" 
+# SECRET_KEY = "django-insecure-3+zu_f&t#opj^_ce#e#54ok^6f-*=d*743qo$2v%e2d_=s@&@f"
+
+# # SECURITY WARNING: Do not run with debug turned on in production!
+# """
+# Variable to define if the project is being used in a production or development environment.
+# Set DEBUG to True for development and False for production.
+
+# In production, setting DEBUG to False is crucial for security. With DEBUG set to True, detailed error
+# messages are displayed, which can expose sensitive information to attackers. Additionally, other settings
+# such as ALLOWED_HOSTS and database settings should be configured properly for production environments.
+# """
+
+# DEBUG = True
+
+# """
+# Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
+# """
+
+# ALLOWED_HOSTS = ["*"]
+
+
+
+# """
+# Database by default in DJANGO
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# """ 
+
 
 # DATABASES = {
 #     'default': {
@@ -126,20 +132,36 @@ https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 # }
 
 
-"""
-DB Migration
-"""
 
+
+# """
+# DB Migration
+# """
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blog',
+#         'USER': 'blog',
+#         'PASSWORD': 'sky',
+#     }
+# }
+
+
+
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = bool(os.environ.get("DEBUG", default=0))
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'blog',
-        'PASSWORD': 'sky',
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE"),
+        "NAME": os.environ.get("SQL_DATABASE"),
+        "USER": os.environ.get("SQL_USER"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD"),
+        "HOST": os.environ.get("SQL_HOST"),
+        "PORT": os.environ.get("SQL_PORT"),
     }
 }
-
-
 
 
 
