@@ -3,7 +3,6 @@ from ..models import Post
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 
-import pypandoc
 import markdown
 
 register = template.Library()

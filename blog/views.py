@@ -16,6 +16,9 @@ def post_list(request, tag_slug=None):
 
     all_tags = Tag.objects.annotate(tag_count=Count('post')).order_by('-tag_count')
 
+    published_tags = Tag.objects.filter(post__status=Post.Status.PUBLISHED).annotate(tag_count=Count('post')).order_by('-tag_count')
+
+
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
@@ -34,7 +37,8 @@ def post_list(request, tag_slug=None):
                   'blog/post/list.html',
                   {'posts': posts,
                    'tag': tag,
-                   'all_tags': all_tags}
+                   'all_tags': all_tags,
+                   'published_tags': published_tags}
     )
 
 def post_detail(request, year, month, day, post):

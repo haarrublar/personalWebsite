@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
-from .views import home, about, resume, footer
+from .views import home, about
 
 
 
@@ -29,9 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('about/', about, name='about'),
-    path('resume/', resume, name='resume'),
-    path('footer/', footer, name='footer'),
-    path('blog/', include('blog.urls', namespace='blog')),
+    path('pages/', include('pages.urls', namespace='pages')),
 ]
 
 # Serving the media files in development mode
