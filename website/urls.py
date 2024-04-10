@@ -19,19 +19,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
-from django.contrib.sitemaps.views import sitemap
-from blog.sitemaps import PostSitemap
+from .views import home, about, resume, footer
 
-sitemaps = {
-    'posts': PostSitemap,
-}
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('about/', about, name='about'),
+    path('resume/', resume, name='resume'),
+    path('footer/', footer, name='footer'),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('', include('pages.urls', namespace='pages')),
-    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
 
 # Serving the media files in development mode

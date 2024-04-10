@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-# from .feeds import LatestPostsFeed # activate in case RSS FEED
 
 app_name = 'blog'
 urlpatterns = [
