@@ -1,0 +1,1695 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add post",
+    "content_type": 7,
+    "codename": "add_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change post",
+    "content_type": 7,
+    "codename": "change_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete post",
+    "content_type": 7,
+    "codename": "delete_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view post",
+    "content_type": 7,
+    "codename": "view_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 8,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 8,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 8,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 8,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add tagged item",
+    "content_type": 9,
+    "codename": "add_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change tagged item",
+    "content_type": 9,
+    "codename": "change_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete tagged item",
+    "content_type": 9,
+    "codename": "delete_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view tagged item",
+    "content_type": 9,
+    "codename": "view_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add site",
+    "content_type": 10,
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change site",
+    "content_type": 10,
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": 10,
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view site",
+    "content_type": 10,
+    "codename": "view_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add author info",
+    "content_type": 11,
+    "codename": "add_authorinfo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change author info",
+    "content_type": 11,
+    "codename": "change_authorinfo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete author info",
+    "content_type": 11,
+    "codename": "delete_authorinfo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view author info",
+    "content_type": 11,
+    "codename": "view_authorinfo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add author studies",
+    "content_type": 12,
+    "codename": "add_authorstudies"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change author studies",
+    "content_type": 12,
+    "codename": "change_authorstudies"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete author studies",
+    "content_type": 12,
+    "codename": "delete_authorstudies"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view author studies",
+    "content_type": 12,
+    "codename": "view_authorstudies"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add expertise category",
+    "content_type": 13,
+    "codename": "add_expertisecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change expertise category",
+    "content_type": 13,
+    "codename": "change_expertisecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete expertise category",
+    "content_type": 13,
+    "codename": "delete_expertisecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view expertise category",
+    "content_type": 13,
+    "codename": "view_expertisecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add expertise tool",
+    "content_type": 14,
+    "codename": "add_expertisetool"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change expertise tool",
+    "content_type": 14,
+    "codename": "change_expertisetool"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete expertise tool",
+    "content_type": 14,
+    "codename": "delete_expertisetool"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view expertise tool",
+    "content_type": 14,
+    "codename": "view_expertisetool"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add work experience",
+    "content_type": 15,
+    "codename": "add_workexperience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change work experience",
+    "content_type": 15,
+    "codename": "change_workexperience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete work experience",
+    "content_type": 15,
+    "codename": "delete_workexperience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view work experience",
+    "content_type": 15,
+    "codename": "view_workexperience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add project",
+    "content_type": 16,
+    "codename": "add_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change project",
+    "content_type": 16,
+    "codename": "change_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete project",
+    "content_type": 16,
+    "codename": "delete_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view project",
+    "content_type": 16,
+    "codename": "view_project"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add publication",
+    "content_type": 17,
+    "codename": "add_publication"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change publication",
+    "content_type": 17,
+    "codename": "change_publication"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete publication",
+    "content_type": 17,
+    "codename": "delete_publication"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view publication",
+    "content_type": 17,
+    "codename": "view_publication"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add academic participation",
+    "content_type": 18,
+    "codename": "add_academicparticipation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change academic participation",
+    "content_type": 18,
+    "codename": "change_academicparticipation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete academic participation",
+    "content_type": 18,
+    "codename": "delete_academicparticipation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view academic participation",
+    "content_type": 18,
+    "codename": "view_academicparticipation"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$DaP5RScTTmWSccO4EckQPx$C4IR6UwKDrXxh04o2PoIZCW+NXUD9fGf6R8cYPqsJDg=",
+    "last_login": "2024-03-26T02:48:40.576Z",
+    "is_superuser": true,
+    "username": "haarrublar",
+    "first_name": "",
+    "last_name": "",
+    "email": "haarrublar@haarrublar.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-03-25T20:14:40.673Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "d9k08me42ol0fdrvqtv8sun1hok8j7g8",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlk4_sWU9DmDtd5dcADZUpxUiLvjSCmgnDdv5i0ibGuOW-MlziQuQonTL0uATy57QQ8o9yqxlnWZk9wVebRNTpX4dT3cv4MMLfc1qrN2bNAzIRkekUfNKnWYnMVABCENjhk4eG1vLqHpySo0wZIfQHy-Dng4_Q:1rowrg:u2Nn3tPh79TcoKnrrcQWustbt0SkUd8ra1tDP_XTYbY",
+    "expire_date": "2024-04-09T02:48:40.582Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "du5edjravfii7esyeuk3gwvt5x0fbe5j",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlk4_sWU9DmDtd5dcADZUpxUiLvjSCmgnDdv5i0ibGuOW-MlziQuQonTL0uATy57QQ8o9yqxlnWZk9wVebRNTpX4dT3cv4MMLfc1qrN2bNAzIRkekUfNKnWYnMVABCENjhk4eG1vLqHpySo0wZIfQHy-Dng4_Q:1roqik:K58ee2P27GDdm27wd5KFQMdMNaiPRDzwHtCHqcATzyM",
+    "expire_date": "2024-04-08T20:15:02.529Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 3,
+  "fields": {
+    "title": "Test 1: Exploring the Mysteries of Quantum Mechanics",
+    "created": "2024-04-02T17:00:21.405Z",
+    "updated": "2024-04-02T17:04:07.076Z",
+    "publish": "2024-04-02T16:59:26Z",
+    "slug": "test-1-exploring-the-mysteries-of-quantum-mechanics",
+    "author": 1,
+    "summary": "Dive into the fascinating world of quantum mechanics, where particles can exist in multiple states at once and teleportation is a real possibility",
+    "body": "Quantum mechanics is a branch of physics that deals with the behavior of particles at the smallest scales. It is a theory that has revolutionized our understanding of the universe, leading to the development of technologies such as lasers, MRI machines, and quantum computers.\r\n\r\nAt the heart of quantum mechanics is the principle of superposition, which states that particles can exist in multiple states at once. This means that a particle, such as an electron, can be in two places at the same time or spin in two directions simultaneously.\r\n\r\nAnother fascinating aspect of quantum mechanics is entanglement, where two particles become interconnected in such a way that the state of one particle is dependent on the state of the other, regardless of the distance between them. This phenomenon, famously described by Einstein as \"spooky action at a distance,\" has been experimentally verified and is a key element of quantum computing.\r\n\r\nQuantum mechanics also introduces the concept of uncertainty, as described by Heisenberg's uncertainty principle. This principle states that it is impossible to know both the exact position and momentum of a particle simultaneously with certainty.\r\n\r\nOverall, quantum mechanics challenges our classical understanding of the world and opens up new possibilities for technology and science.",
+    "status": "PB"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 4,
+  "fields": {
+    "title": "Test 2: The Beauty of Fractals in Nature and Mathematics",
+    "created": "2024-04-02T17:01:05.847Z",
+    "updated": "2024-04-02T17:01:05.847Z",
+    "publish": "2024-04-02T17:00:21Z",
+    "slug": "test-2-the-beauty-of-fractals-in-nature-and-mathematics",
+    "author": 1,
+    "summary": "Discover the mesmerizing beauty of fractals, mathematical shapes found in nature and art that exhibit self-similar patterns at different scales",
+    "body": "Fractals are geometric shapes that exhibit self-similar patterns at different scales. They are found abundantly in nature, from the branching patterns of trees to the intricate shapes of coastlines and snowflakes.\r\n\r\nOne of the most famous examples of a fractal is the Mandelbrot set, a complex mathematical shape that, when magnified, reveals intricate and never-ending patterns. The discovery of the Mandelbrot set revolutionized the field of fractal geometry and has led to new insights into the nature of complexity in the natural world.\r\n\r\nFractals are not only beautiful but also have practical applications. They are used in computer graphics to create realistic landscapes, in data compression algorithms to reduce file sizes, and in the study of chaotic systems to understand their behavior.",
+    "status": "PB"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 5,
+  "fields": {
+    "title": "Test 3: The Mathematics of Music: Harmonious Equations",
+    "created": "2024-04-02T17:01:55.888Z",
+    "updated": "2024-04-02T17:01:55.888Z",
+    "publish": "2024-04-02T17:01:05Z",
+    "slug": "test-3-the-mathematics-of-music-harmonious-equations",
+    "author": 1,
+    "summary": "Explore the mathematical principles behind music, from the harmony of chords to the rhythm of beats, revealing the close relationship between math and music.",
+    "body": "Music and mathematics have a deep and intertwined relationship. The harmony of chords, the rhythm of beats, and the structure of melodies are all governed by mathematical principles.\r\n\r\nOne of the fundamental concepts in music theory is the octave, which represents a doubling of frequency. Each octave is divided into twelve equal parts, known as semitones, which form the basis of the musical scale.\r\n\r\nThe relationship between the frequencies of notes in a musical scale is governed by simple mathematical ratios. For example, the ratio of frequencies between two notes that are an octave apart is 2:1, while the ratio between two notes that are a fifth apart is 3:2.\r\n\r\nThese mathematical relationships form the basis of musical harmony, with certain ratios producing consonant and pleasing sounds, while others produce dissonance. Understanding these mathematical principles allows musicians to create harmonious and emotionally resonant music.",
+    "status": "PB"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 6,
+  "fields": {
+    "title": "Test 4: The Wonders of Space-Time: Einstein's Theory of Relativity",
+    "created": "2024-04-02T17:02:32.418Z",
+    "updated": "2024-04-02T17:02:32.418Z",
+    "publish": "2024-04-02T17:01:55Z",
+    "slug": "test-4-the-wonders-of-space-time-einsteins-theory-of-relativity",
+    "author": 1,
+    "summary": "Delve into the mind-bending concepts of space-time, gravity, and the nature of the universe as described by Einstein's groundbreaking theory.",
+    "body": "Einstein's theory of relativity is one of the most profound and revolutionary theories in the history of physics. It fundamentally changed our understanding of space, time, and gravity.\r\n\r\nOne of the key insights of relativity is that space and time are not separate entities but are interwoven into a single four-dimensional continuum known as space-time. This means that events that are perceived as happening simultaneously by one observer may not be simultaneous for another observer in a different frame of reference.\r\n\r\nAnother key concept of relativity is that the laws of physics are the same for all observers, regardless of their relative motion. This principle, known as the principle of relativity, forms the basis of the theory.\r\n\r\nPerhaps the most famous equation in physics, E=mc², is a direct consequence of relativity. This equation shows that energy and mass are interchangeable, leading to the discovery of nuclear energy and the development of nuclear weapons.",
+    "status": "PB"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 7,
+  "fields": {
+    "title": "Test 5: The Power of Algorithms: How Math Drives Technology",
+    "created": "2024-04-02T17:03:10.896Z",
+    "updated": "2024-04-02T17:03:10.896Z",
+    "publish": "2024-04-02T17:02:32Z",
+    "slug": "test-5-the-power-of-algorithms-how-math-drives-technology",
+    "author": 1,
+    "summary": "Learn how algorithms, the step-by-step procedures based on mathematical calculations, are revolutionizing technology and shaping our digital world.",
+    "body": "Algorithms are the engines that power the digital age, allowing computers to perform complex calculations and make decisions at incredible speeds. They are step-by-step procedures based on mathematical calculations that enable computers to solve problems and process data.\r\n\r\nOne of the key applications of algorithms is in data processing and analysis. Algorithms are used to search, sort, and analyze large datasets, extracting valuable insights and patterns that can be used for decision-making.\r\n\r\nAlgorithms are also crucial in the field of artificial intelligence, where they are used to train machine learning models. These models can learn from data and make predictions or decisions without being explicitly programmed.\r\n\r\nIn the world of technology, algorithms are everywhere, from search engines that rank web pages to recommendation systems that suggest products or content based on your preferences. Understanding algorithms is essential for anyone working in the field of technology.",
+    "status": "PB"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 8,
+  "fields": {
+    "title": "Test 6: The Magic of Numbers: Fibonacci Sequence and Golden Ratio",
+    "created": "2024-04-02T17:03:52.120Z",
+    "updated": "2024-04-03T06:47:52.029Z",
+    "publish": "2024-04-02T17:03:10Z",
+    "slug": "test-6-the-magic-of-numbers-fibonacci-sequence-and-golden-ratio",
+    "author": 1,
+    "summary": "Discover the mathematical beauty of the Fibonacci sequence and the golden ratio, found in nature, art, and architecture, reflecting a universal aesthetic principle.",
+    "body": "# The Fibonacci Sequence and the Golden Ratio\r\n\r\nThe Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, starting from 0 and 1. The sequence begins `$0, 1, 1, 2, 3, 5, 8, 13, 21, \\ldots$`, with each number being the sum of the two before it.\r\n\r\n```{.css .user-select-all}\r\nHello World\r\n```\r\n\r\nThe Fibonacci sequence is closely related to the [golden ratio](https://en.wikipedia.org/wiki/Golden_ratio), $\\phi$, a mathematical constant that appears in many aspects of art, architecture, and nature. The ratio of two consecutive Fibonacci numbers approaches the golden ratio as the sequence progresses:\r\n\r\n$$\r\n\\lim_{n \\to \\infty} \\frac{F_{n+1}}{F_n} = \\phi\r\n$$\r\n\r\nwhere $F_n$ denotes the $n$th Fibonacci number.\r\n\r\nThe golden ratio is often considered aesthetically pleasing and is used in art and design to create visually appealing compositions. It is also found in nature, in the spiral patterns of shells, the branching of trees, and the arrangement of leaves and petals.\r\n\r\nThe Fibonacci sequence and the golden ratio are examples of the beauty and elegance of mathematics, showing how simple mathematical concepts can have profound effects on the world around us.\r\n\r\n| Fibonacci Number | Value |\r\n|------------------|-------|\r\n| $F_0$            | 0     |\r\n| $F_1$            | 1     |\r\n| $F_2$            | 1     |\r\n| $F_3$            | 2     |\r\n| $F_4$            | 3     |\r\n| $F_5$            | 5     |\r\n| $F_6$            | 8     |\r\n| $F_7$            | 13    |\r\n| $F_8$            | 21    |",
+    "status": "PB"
+  }
+},
+{
+  "model": "pages.authorinfo",
+  "pk": 1,
+  "fields": {
+    "author_name": "Harrinson Arrubla",
+    "author_role": "Applied Statistician Scientist",
+    "author_email": "harrubla.96@gmail.com",
+    "author_git_user": "haarrublar",
+    "author_country": "United States",
+    "author_photo": "None/exm2.jpg",
+    "author_intro": "Welcome to this blog website. It is under construction, and new blogs, UX features, and styling will be added continuously. My resume, work experience, and academic experience are presented in detail. However, I am not solely focused on academics; in this blog, I strive to present the other side of the coin.",
+    "author_resume": "Applied statistician and data scientist student at the University of Texas Rio Grande Valley (STEM) with a strong mathematical background motivated by machine learning strategies with solid statistical learning techniques. Interested in Artificial Intelligence algorithms for big datasets manipulation in Public Health, Marketing, and Business.\r\n\r\nI consider myself a committed and dynamic professional who constantly is suited to changes and work environments, maximizing team skills. Part of my training focuses on mathematical and statistical modeling for data analysis interpretation by using descriptive and predictive statistical analysis together with linear methods of regression and classification, unsupervised (PCA, clustering), and supervised learning.\r\n\r\nMy skills include leadership, strategist, academic planning, analytical thinking, and creative mathematical and statistical problem solving using computer programming in some software. Regarding programming skills, I have used Windows or/and ubuntu as operative systems for coding in Python (Machine Learning, AI, TensorFlow, PyTorch), R, Matlab, Microsoft Office Suite (Excel, Word, Onenote, PowerPoint) over different frameworks and text editors."
+  }
+},
+{
+  "model": "pages.authorstudies",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "masters_study": "Ms. Applied Statistics and Data Science",
+    "masters_university": "University of Texas Rio Grande Valley",
+    "masters_graduation_date": "2023-12-10",
+    "bachelor_study": "Bs. Mathematics",
+    "bachelor_university": "National University of Colombia",
+    "bachelor_graduation_date": "2019-04-15"
+  }
+},
+{
+  "model": "pages.expertisecategory",
+  "pk": 1,
+  "fields": {
+    "expertise": "Machine Learning, Statistics and AI",
+    "author": 1
+  }
+},
+{
+  "model": "pages.expertisecategory",
+  "pk": 2,
+  "fields": {
+    "expertise": "DB",
+    "author": 1
+  }
+},
+{
+  "model": "pages.expertisecategory",
+  "pk": 3,
+  "fields": {
+    "expertise": "Frontend",
+    "author": 1
+  }
+},
+{
+  "model": "pages.expertisecategory",
+  "pk": 4,
+  "fields": {
+    "expertise": "Text Editor",
+    "author": 1
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 1,
+  "fields": {
+    "tool": 1,
+    "tool_name": "python",
+    "tool_url": "https://www.python.org/",
+    "tool_image": "images/python_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 2,
+  "fields": {
+    "tool": 1,
+    "tool_name": "R",
+    "tool_url": "https://www.r-project.org/",
+    "tool_image": "images/R_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 3,
+  "fields": {
+    "tool": 1,
+    "tool_name": "Tensorflow",
+    "tool_url": "https://www.tensorflow.org/",
+    "tool_image": "images/ft_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 4,
+  "fields": {
+    "tool": 1,
+    "tool_name": "BI",
+    "tool_url": "https://www.microsoft.com/en-us/power-platform/products/power-bi",
+    "tool_image": "images/bi_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 5,
+  "fields": {
+    "tool": 2,
+    "tool_name": "MySQL",
+    "tool_url": "https://www.mysql.com/",
+    "tool_image": "images/mysql_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 6,
+  "fields": {
+    "tool": 2,
+    "tool_name": "PostgreSQL",
+    "tool_url": "https://www.postgresql.org/",
+    "tool_image": "images/postgresql_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 7,
+  "fields": {
+    "tool": 3,
+    "tool_name": "Tailwinds",
+    "tool_url": "https://tailwindcss.com/",
+    "tool_image": "images/tailwindcss_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 8,
+  "fields": {
+    "tool": 3,
+    "tool_name": "Bootstrap",
+    "tool_url": "https://getbootstrap.com/",
+    "tool_image": "images/bootstrap_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 9,
+  "fields": {
+    "tool": 4,
+    "tool_name": "Latex_light",
+    "tool_url": "https://www.latex-project.org/",
+    "tool_image": "images/LaTeX_light_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 10,
+  "fields": {
+    "tool": 4,
+    "tool_name": "Latex_dark",
+    "tool_url": "https://www.latex-project.org/",
+    "tool_image": "images/LaTeX_dark_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 11,
+  "fields": {
+    "tool": 4,
+    "tool_name": "Microsoft",
+    "tool_url": "https://www.office.com/",
+    "tool_image": "images/Microsoft_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 12,
+  "fields": {
+    "tool": 4,
+    "tool_name": "Vscode",
+    "tool_url": "https://code.visualstudio.com/",
+    "tool_image": "images/vscode_logo.svg"
+  }
+},
+{
+  "model": "pages.expertisetool",
+  "pk": 13,
+  "fields": {
+    "tool": 4,
+    "tool_name": "HTML5",
+    "tool_url": "https://html5.org/",
+    "tool_image": "images/html5_logo.svg"
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "company": "Outlier AI",
+    "position": "AI Trainer",
+    "start_date": "2024-01-15",
+    "end_date": null,
+    "is_current": true,
+    "country": "United States",
+    "job_description": "As an AI Trainer, I develop prompts, evaluate, and refine the AI’s solutions to mathematical problems. I contribute to the development of advanced AI capabilities in the field of mathematics and logic."
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "company": "Salaz Design",
+    "position": "Data Scientist",
+    "start_date": "2024-01-10",
+    "end_date": null,
+    "is_current": true,
+    "country": "United States",
+    "job_description": "Same responsibilities as the Business Intelligence Analyst Intern position at Salaz Design."
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "company": "Salaz Design",
+    "position": "Business Intelligence Analyst - Intern",
+    "start_date": "2023-12-10",
+    "end_date": "2024-01-10",
+    "is_current": false,
+    "country": "United States",
+    "job_description": "Utilize SQL, Python, and data visualization tools to extract, analyze, and interpret complex data. Develop insights crucial for data-driven decision-making. Contribute to the development of interactive dashboards, reports, and visualizations using SQL, Python, and data visualization tools.\r\nApply statistical learning techniques and algorithms to uncover trends and patterns in manufacturing, supply chain, and shipment data.\r\nContribute to budgeting and planning processes to align data strategies with overall business objectives. Utilize Python, Power BI, and Microsoft Office for data mining, analysis, reporting, and presentation."
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "company": "University of Texas Rio Grande Valley, The National Science Foundation (NSF) Research Experience for Undergraduate Students (REU) Program on Applied Mathematics and Computational and Data Science",
+    "position": "Research Assistant (RA)",
+    "start_date": "2022-03-15",
+    "end_date": "2022-07-15",
+    "is_current": false,
+    "country": "United States",
+    "job_description": "Provided comprehensive training to undergraduate students in Python, R, and MATLAB for the purpose of modeling fractional differential equations and effectively visualizing the outcomes of their mathematical simulations.\r\nIntroduced them to Monte Carlo simulations and deep learning methods for tackling fractional differential equations systems using heavy-tailed distributions and mathematical simulations.\r\nAssisted undergraduate students in refining their writing style, definitions, and outcome presentations for paper-style reports submitted to the NSF and the University of Texas Rio Grande Valley."
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "company": "Caldas University",
+    "position": "Lecturer",
+    "start_date": "2020-01-10",
+    "end_date": "2020-12-15",
+    "is_current": false,
+    "country": "Colombia",
+    "job_description": "Delivered comprehensive instruction in Calculus II, ensuring students grasped advanced mathematical concepts. Employed diverse teaching methods and practical examples to enhance understanding and problem-solving skill\r\nProvided foundational knowledge in mathematics through the Fundamentals of Mathematics course. Equipped students with essential mathematical skills and logical reasoning to excel in software engineering.Algorithm:\r\nImparted statistical expertise to students through engaging in Statistics courses. Covered topics such as data analysis, probability theory, and statistical modeling, enabling students to make data-informed decisions in software engineering contexts."
+  }
+},
+{
+  "model": "pages.workexperience",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "company": "National University of Colombia",
+    "position": "Delegate for Departmental Mathematics Olympiad",
+    "start_date": "2018-04-15",
+    "end_date": "2018-06-15",
+    "is_current": false,
+    "country": "Colombia",
+    "job_description": "Responsible for organizing and overseeing Math Olympiads at the departmental level. Ensured smooth logistics, including test preparation, distribution, and supervision."
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "role": "Participant",
+    "year": 2018,
+    "event": "Third International Colloquium on Representations of Algebras\r\nand Its Applications: Alexander Zavadskij",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "role": "Speaker",
+    "year": 2018,
+    "event": "Characterization of Artin algebras using Nakayama Algebras. CIMPA: Geometric and Homological Methods in the Representation Theory of Associative Algebras and Their Applications",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "role": "Finalist",
+    "year": 2018,
+    "event": "XXII College Mathematical Olympiad of Colombia.",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "role": "Speaker",
+    "year": 2018,
+    "event": "Characterization of Artin Algebras via Nakayama Algebras. XX Local Encounter of Research Seedbeds",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "role": "Participant",
+    "year": 2017,
+    "event": "Alterman Summer School on Algebraic geometry & Kälher Calculus. The University of Architecture, Civil Engineering and Geodesy. Sofia, Bulgaria",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 6,
+  "fields": {
+    "author": 1,
+    "role": "Participant",
+    "year": 2017,
+    "event": "IV International Encounter in the field of Exact and Natural Science Education",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 7,
+  "fields": {
+    "author": 1,
+    "role": "Speaker",
+    "year": 2017,
+    "event": "A Brief Introduction to Soliton Theory. XXI National Congress of Mathematics",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 8,
+  "fields": {
+    "author": 1,
+    "role": "Participant",
+    "year": 2016,
+    "event": "Second Training Courses Focus on Probability and Stochastic Process",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.academicparticipation",
+  "pk": 9,
+  "fields": {
+    "author": 1,
+    "role": "Participant",
+    "year": 2015,
+    "event": "XX National Congress of Mathematics",
+    "skills": ""
+  }
+},
+{
+  "model": "pages.project",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "project_name": "Optimizing Predictive Accuracy for Fatal Heart Failure via Machine Learning",
+    "year": 2022,
+    "description": "Applied penalized regression (lasso and elastic net method), linear regression, and SVM models to predict fatal heart failure using medical records. Tuned models using techniques like lasso regularization and mathematical kernels to optimize predictive accuracy. The lasso model achieved the highest accuracy, demonstrating the capability of sparse linear models for this task. The analysis identified key predictive features - serum creatinine, age, and ejection fraction.",
+    "skills": "Data Modeling, R, Python, Analytics"
+  }
+},
+{
+  "model": "pages.project",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "project_name": "Fine-Tuning Transformer Networks for Sentiment Analysis with Natural Language Processing (NLP)",
+    "year": 2022,
+    "description": "Code the best Natural Language Processing (NLP) algorithm possible for classifying positive and negative reviews on real-life unstructured text datasets (Game Review). Findings: destilBERT transformer got 93% accuracy after tokenization, POS, and keyword extraction.",
+    "skills": "Data Modeling, Big-Picture Thinking, R, Python, Machine Learning"
+  }
+},
+{
+  "model": "pages.project",
+  "pk": 3,
+  "fields": {
+    "author": 1,
+    "project_name": "Statistical Learning for Customer Response Modeling in Real-World Marketing Big Dataset",
+    "year": 2021,
+    "description": "Developed models using logistic regression, random forest, and support vector machines to predict high-probability customers for future direct mail marketing campaigns in real-world big data. Trained the models on historical customer response data to identify prospective customers likely to engage positively with future campaigns.",
+    "skills": "Statistical learning, R, Python, Big data"
+  }
+},
+{
+  "model": "pages.project",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "project_name": "Regression and Classification of BIO data",
+    "year": 2021,
+    "description": "Utilized SAS software to perform statistical analysis on a real-world dataset of resting blood pressure measurements collected longitudinally. Applied linear regression models to assess the relationship between blood pressure and other variables over time. Additionally, implemented logistic regression techniques to predict the likelihood of hypertension based on input variables. All research was made on SAS programming.",
+    "skills": "SAS, R, Bio statistics"
+  }
+},
+{
+  "model": "pages.publication",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "title": "Probabilistic solutions of fractional differential and partial differential equations and their Monte Carlo simulations",
+    "participants": "T. Oraby, E. Suazo, H. Arrubla",
+    "role": null,
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0960077922010803",
+    "journal": "Chaos, Solitons & Fractals Volume 166, 112901",
+    "year": 2023
+  }
+},
+{
+  "model": "pages.publication",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "title": "Functional data learning using convolutional neural networks",
+    "participants": "J. Galarza, T. Oraby",
+    "role": "Researcher participant in discussions and trials.",
+    "url": "https://iopscience.iop.org/article/10.1088/2632-2153/ad2627",
+    "journal": "Mach. Learn.: Sci. Technol. 5 015030",
+    "year": 2024
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Quantum Mechanics",
+    "slug": "quantum-mechanics"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Quantum Computing",
+    "slug": "quantum-computing"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Physics",
+    "slug": "physics"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Technology",
+    "slug": "technology"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Science",
+    "slug": "science"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 6,
+  "fields": {
+    "name": "Mathematics",
+    "slug": "mathematics"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 7,
+  "fields": {
+    "name": "Nature",
+    "slug": "nature"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 8,
+  "fields": {
+    "name": "Patterns",
+    "slug": "patterns"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 9,
+  "fields": {
+    "name": "Fractals",
+    "slug": "fractals"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 10,
+  "fields": {
+    "name": "Art",
+    "slug": "art"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 11,
+  "fields": {
+    "name": "Math in Music",
+    "slug": "math-in-music"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 12,
+  "fields": {
+    "name": "Music",
+    "slug": "music"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 13,
+  "fields": {
+    "name": "Harmony",
+    "slug": "harmony"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 14,
+  "fields": {
+    "name": "Rhythm",
+    "slug": "rhythm"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 15,
+  "fields": {
+    "name": "Einstein",
+    "slug": "einstein"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 16,
+  "fields": {
+    "name": "Theory of Relativity",
+    "slug": "theory-of-relativity"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 17,
+  "fields": {
+    "name": "Gravity",
+    "slug": "gravity"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 18,
+  "fields": {
+    "name": "Space-Time",
+    "slug": "space-time"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 19,
+  "fields": {
+    "name": "Computer Science",
+    "slug": "computer-science"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 20,
+  "fields": {
+    "name": "Algorithms",
+    "slug": "algorithms"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 21,
+  "fields": {
+    "name": "Digital Age",
+    "slug": "digital-age"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 22,
+  "fields": {
+    "name": "Architecture",
+    "slug": "architecture"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 23,
+  "fields": {
+    "name": "Fibonacci Sequence",
+    "slug": "fibonacci-sequence"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 24,
+  "fields": {
+    "name": "Golden Ratio",
+    "slug": "golden-ratio"
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 1,
+  "fields": {
+    "tag": 1,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 2,
+  "fields": {
+    "tag": 2,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 3,
+  "fields": {
+    "tag": 3,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 4,
+  "fields": {
+    "tag": 4,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 5,
+  "fields": {
+    "tag": 5,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 6,
+  "fields": {
+    "tag": 6,
+    "content_type": 7,
+    "object_id": 4
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 7,
+  "fields": {
+    "tag": 7,
+    "content_type": 7,
+    "object_id": 4
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 8,
+  "fields": {
+    "tag": 8,
+    "content_type": 7,
+    "object_id": 4
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 9,
+  "fields": {
+    "tag": 9,
+    "content_type": 7,
+    "object_id": 4
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 10,
+  "fields": {
+    "tag": 10,
+    "content_type": 7,
+    "object_id": 4
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 11,
+  "fields": {
+    "tag": 6,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 12,
+  "fields": {
+    "tag": 11,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 13,
+  "fields": {
+    "tag": 12,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 14,
+  "fields": {
+    "tag": 13,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 15,
+  "fields": {
+    "tag": 14,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 16,
+  "fields": {
+    "tag": 3,
+    "content_type": 7,
+    "object_id": 6
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 17,
+  "fields": {
+    "tag": 15,
+    "content_type": 7,
+    "object_id": 6
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 18,
+  "fields": {
+    "tag": 16,
+    "content_type": 7,
+    "object_id": 6
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 19,
+  "fields": {
+    "tag": 17,
+    "content_type": 7,
+    "object_id": 6
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 20,
+  "fields": {
+    "tag": 18,
+    "content_type": 7,
+    "object_id": 6
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 21,
+  "fields": {
+    "tag": 4,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 22,
+  "fields": {
+    "tag": 6,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 23,
+  "fields": {
+    "tag": 19,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 24,
+  "fields": {
+    "tag": 20,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 25,
+  "fields": {
+    "tag": 21,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 26,
+  "fields": {
+    "tag": 6,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 27,
+  "fields": {
+    "tag": 7,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 28,
+  "fields": {
+    "tag": 10,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 29,
+  "fields": {
+    "tag": 22,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 30,
+  "fields": {
+    "tag": 23,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 31,
+  "fields": {
+    "tag": 24,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "localhost:8000",
+    "name": "localhost:8000"
+  }
+}
+]
