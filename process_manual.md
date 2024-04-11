@@ -1359,6 +1359,207 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO blog;
 After following these steps, you should be able to run Docker commands as a non-root user without using `sudo`. Remember to log out and log back in after adding your user to the `docker` group for the changes to take effect.
 
 
+### Setting Up Docker Desktop on Ubuntu
+
+To instal and configuring Docker Desktop and ensuring a smooth and efficient workflow for all the containerized applications.
+
+#### Step 1: Enable Virtualization
+  We need to make sure that virtualization is enabled on our system. This is a crucial step, as Docker relies heavily on virtualization technology to create and manage containers. Open your system's BIOS or UEFI settings and enable the virtualization feature. The process may vary depending on your hardware, so consult your manufacturer's documentation if you're unsure.
+
+#### Step 2: Verify GNOME Installation
+  Docker Desktop requires a graphical user interface (GUI) to function properly. On Ubuntu, the GNOME desktop environment is typically installed by default. However, if you're using a minimal or server-based installation, you'll need to install the `gnome-terminal` package manually. 
+
+  ```Bash
+  sudo apt install gnome-terminal
+  ```
+
+#### Step 3: Update Your System
+  Before proceeding with the Docker Desktop installation, it's always a good practice to ensure that your system is up-to-date with the latest package information. Run the following command to update the package index:
+
+  ```Bash
+  sudo apt-get update
+  ```
+
+#### Step 4: Download and Install Docker Desktop
+  Once you've downloaded the desired package (e.g., `docker-desktop-<version>-<arch>.deb`) install Docker Desktop:
+
+  ```Bash
+  sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+  ```
+
+#### Step 5: Start Docker Desktop
+  After a successful installation, it's time to start and enable the Docker Desktop service. 
+
+  ```Bash
+  systemctl --user start docker-desktop
+  systemctl --user enable docker-desktop
+  ```
+
+
+#### Step 7: Generate a GPG Key and Initialize Password Store 
+  If you plan on using Docker's secure content trust features, such as signed images and repositories, you'll need to generate a GPG key and initialize the password store. 
+
+  ```Bash
+  gpg --generate-key
+  pass init
+  ```
+
+
+### Deploying a Docker container: sqlite3 DB
+
+#### Step 1: Export the data to a JSON file using `loaddata`
+  Django provides a built-in management command called `loaddata` that allows you to export your database data into a JSON file. This command will create a `data.json` file containing all the data from your Django project's database.
+
+  ```
+  python manage.py dumpdata > data.json
+  ```
+
+
+
+### Step 2: Check the Python version and construct the Dockerfile
+  Before you start building your Docker image, you need to decide which Python version you want to use. In this case, you mentioned using the Alpine Linux distribution, which is a lightweight and secure distribution well-suited for containerized applications.
+
+  Create a `Dockerfile` with instructions to build your Django application image. Here's an example of what your `Dockerfile` might look like:
+
+  ```dockerfile
+  FROM alpine:3.18
+
+  # prevent Python from writing .pyc files
+  ENV PYTHONDONTWRITEBYTECODE=1
+
+  # ensure Python output is sent directly to the terminal without buffering, allowing for immediate display of output
+  ENV PYTHONBUFFERED=1
+
+  # project working directory
+  WORKDIR /app
+
+  # --------------------------------------- #
+  # REQUIREMENTS INSTALLATION AND ACTIVATION #
+
+  RUN apk update && apk add --no-cache py3-pip
+  RUN pip install --upgrade pip
+  COPY pipRequirements.txt /app/requirements.txt
+  RUN pip install -r requirements.txt
+
+  # --------------------------------------- #
+
+
+  # --------------------------------------- #
+  # STORAGING ENTRYPOINT & PERMISSIONS #
+
+  COPY entrypoint.sh /app/entrypoint.sh
+  RUN sed -i 's/\r$//g' /app/entrypoint.sh
+  RUN chmod +x /app/entrypoint.sh
+
+  # --------------------------------------- #
+
+  # --------------------------------------- #
+  # STORAGING THE PROJECT #
+
+  COPY . /app/
+
+  # --------------------------------------- #
+
+
+  ENTRYPOINT [ "/usr/src/website/entrypoint.sh" ]
+  ```
+
+
+### Step 3: Create the docker-compose file
+Create a `docker-compose.yml` file to define our Django application service and any other services it depends on (e.g., a database service).
+
+
+```yaml
+version: '3'
+
+services:
+  web:
+    container_name: djangoWebsite
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env.dev
+
+```
+
+
+
+### Step 4: Create an entry point script
+  As mentioned in the `Dockerfile`, we'll create an `entrypoint.sh` script that will run when the container starts. This script can be used to perform any necessary setup tasks, such as applying database migrations or collecting static files.
+
+  ```bash
+  #!/bin/sh
+
+  # different python commands needed such as migrations
+  python manage.py migrate
+
+  exec "$@"
+  ```
+
+  **NOTE**: Don't forget to make the script executable with `chmod +x entrypoint.sh`.
+
+### Step 5: Configure the `settings.py` file
+  You need to configure your Django project's `settings.py` file to load environment variables from the `.env.dev` file we'll create in the next step. Here's how you can do it:
+
+  1. Import the `os` package at the top of your `settings.py` file:
+
+  ```python
+  import os
+  ```
+
+  2. Load the `SECRET_KEY`, `DEBUG`, and `ALLOWED_HOSTS` values from environment variables:
+
+  ```python
+  SECRET_KEY = os.environ.get('SECRET_KEY')
+  DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+  ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+
+  DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get("SQL_ENGINE"),
+        'NAME': os.environ.get("SQL_DATABASE"),
+      }
+  }
+  ```
+
+  We're using the `os.environ.get()` function to retrieve the values of `SECRET_KEY`, `DEBUG`, and `ALLOWED_HOSTS` from the environment. 
+
+  Regarding the question about using a virtual environment inside a container, it's generally not necessary. As the container provides isolation, you can install packages system-wide without worrying about conflicts. However, if you're using a multi-stage build, you may want to consider using a virtual environment in one of the stages to avoid building wheel files.
+
+### Step 6: Create the `.env.dev` file
+  Create a `.env.dev` file to store the environment variables for our Django application in the development environment.
+
+  ```
+  SECRET_KEY=your_secret_key_here
+  DEBUG=True
+  ALLOWED_HOSTS=localhost,127.0.0.1
+  SQL_ENGINE=django.db.backends.sqlite3
+  SQL_DATABASE=/app/db.sqlite3
+  ```
+
+  Replace `your_secret_key_here` with a secure secret key for your Django application. Set `DEBUG` to `True` for the development environment, and update `ALLOWED_HOSTS` with the appropriate host values for your development setup.
+
+Step 7: Execute the container
+With all the necessary files in place, you can now execute your containerized Django application using Docker Compose. Open a terminal, navigate to the directory containing your `docker-compose.yml` file, and run the following command:
+
+```Bash
+docker compose build
+docker compose up -d
+```
+
+You can check for errors in the logs as follows:
+
+```Bash
+docker compose logs -f
+```
+
+This command will build the Docker images (if they haven't been built already), start the containers, and display the logs in the terminal. You should see the Django development server start and be ready to accept incoming requests.
+
+
+
 
 
 ### Directly Connecting Django to PostgreSQL Container

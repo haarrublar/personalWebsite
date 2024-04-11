@@ -25,7 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECURE_SSL_REDIRECT = False
 
-
 SITE_ID = 1
 
 # Application definition
@@ -48,7 +47,7 @@ INSTALLED_APPS = [
     'pypandoc',
     # 'django.contrib.sites',
     # 'django.contrib.sitemaps',
-    # 'django.contrib.postgres',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +108,6 @@ Select which IPs address allow access to your project. When DEBUG True it might 
 ALLOWED_HOSTS = ["*"]
 
 
-
 """
 Database by default in DJANGO
 https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -123,6 +121,22 @@ DATABASES = {
     }
 }
 
+
+
+
+# SECRET_KEY = os.environ.get("SECRET_KEY")
+# DEBUG = bool(os.environ.get("DEBUG", default=0))
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
+
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get("SQL_ENGINE"),
+#         'NAME': os.environ.get("SQL_DATABASE"),
+#     }
+# }
 
 
 
@@ -141,9 +155,6 @@ DATABASES = {
 
 
 
-# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-# DEBUG = bool(os.environ.get("DEBUG", default=0))
 # DATABASES = {
 #     "default": {
 #         "ENGINE": os.environ.get("SQL_ENGINE"),
