@@ -27,9 +27,9 @@ from .views import home, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
     path('about/', about, name='about'),
-    path('pages/', include('pages.urls', namespace='pages')),
+    path('', include('pages.urls', namespace='pages')),
+    path('blog/', include('blog.urls', namespace='blog')),
 ]
 
 # Serving the media files in development mode

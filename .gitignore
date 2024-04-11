@@ -1,63 +1,63 @@
-# Django-specific files and directories
-*.pyc
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# # Django-specific files and directories
+# *.pyc
+# local_settings.py
+# db.sqlite3
+# db.sqlite3-journal
 
-# Migrations
-**/migrations/**
-!**/migrations/__init__.py
+# # Migrations
+# **/migrations/**
+# !**/migrations/__init__.py
 
-# __pycache__
-**/__pycache__/
+# # __pycache__
+# **/__pycache__/
 
-# Media and static files
-media/
-static/
-mysite_data.json
-node_modules/
-process_manual.md
+# # Media and static files
+# media/
+# static/
+# mysite_data.json
+# node_modules/
+# process_manual.md
 
-# Version control files
-.git/
-.gitignore
+# # Version control files
+# .git/
+# .gitignore
 
-# Environment-specific configuration files
-.env
-.venv
-env/
-venv/
+# # Environment-specific configuration files
+# .env
+# .venv
+# env/
+# venv/
 
-# Ignore Docker-related files
-.dockerignore
-docker-compose.override.yml
-environment.yml
-postgres_data.json
-sqlite3_data.json
-environment.yml
+# # Ignore Docker-related files
+# .dockerignore
+# docker-compose.override.yml
+# environment.yml
+# postgres_data.json
+# sqlite3_data.json
+# environment.yml
 
-# Ignore database files
-*.sqlite3
+# # Ignore database files
+# *.sqlite3
 
-# Ignore other Docker-related files or directories
-.env
-.env.dev
-.env.prod
+# # Ignore other Docker-related files or directories
+# .env
+# .env.dev
+# .env.prod
 
-# Compiled Python files
-*.py[cod]
-*$py.class
+# # Compiled Python files
+# *.py[cod]
+# *$py.class
 
-# Log files
-*.log
-*.log.*
+# # Log files
+# *.log
+# *.log.*
 
-# Cached files
-*.pyc
-*.pyo
-*.swp
-*.swo
+# # Cached files
+# *.pyc
+# *.pyo
+# *.swp
+# *.swo
 
-# API keys and secrets
-*.env
-*.secret
+# # API keys and secrets
+# *.env
+# *.secret
