@@ -19,7 +19,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
-from .views import home, about
 
 
 
@@ -27,7 +26,6 @@ from .views import home, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', about, name='about'),
     path('', include('pages.urls', namespace='pages')),
     path('blog/', include('blog.urls', namespace='blog')),
 ]

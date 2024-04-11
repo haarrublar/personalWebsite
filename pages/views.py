@@ -30,7 +30,13 @@ def home(request):
     )
 
 def about(request):
+
+    author_info = list(AuthorInfo.objects.all())
+
     return render(
         request,
-        'about/about.html'
+        'about/about.html',
+        {
+            'author_info': author_info,
+        }
     )
