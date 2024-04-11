@@ -1,178 +1,38 @@
 {% load static %}
-
+{% load pages_tags %}
 
 <div class="opacity-100 px-3">
   <div style="height: 2em;">
   </div>
   <ol class="relative border-l border-gray-200 dark:border-gray-700">
+  {% for work_experience in author_work_experience %}
     <li class="mb-10 ml-6">
       <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
         <i class="fa-solid fa-bookmark fa-sm"></i>
       </span>
       <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        AI Trainer
+        {{ work_experience.position }}
+        {% if work_experience.is_current %}
         <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
           Currently
         </span>
+        {% endif %}
       </h3>
       <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        Outlier AI, <span class="font-semibold text-gray-900 dark:text-white"> 2024</span>
+        {{ work_experience.company }}
       </p>
-      <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400 ml-2">
-        As an AI Trainer, I develop prompts, evaluate, and refine the AI’s solutions to mathematical problems. I contribute to the development of advanced AI capabilities in the field of mathematics and logic.
-      </p>
-    </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Data Scientist
-        <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-2">
-          Currently
-        </span>
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        Salaz Design (Fort Lauderdale, Florida), <span class="font-semibold text-gray-900 dark:text-white"> 2023</span>
-      </p>
-      <div class="ml-2">
-        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-          Same responsibilities as the Business Intelligence Analyst Intern position at Salaz Design.
-        </p>
-      </div>
-    </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Business Intelligence Analyst - Intern
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        Salaz Design (Fort Lauderdale, Florida), <span class="font-semibold text-gray-900 dark:text-white"> 2023</span>
+      <p class="block mb-4 text-sm font-semibold leading-none text-gray-600 dark:text-gray-200 ml-2" style="line-height: 1.25;">
+        {{ work_experience.start_date.year }}
+        {% if not work_experience.is_current %}
+        - {{ work_experience.end_date.year }}
+        {% endif %}
       </p>
       <ul class="ml-2 list-disc list-inside text-base font-normal text-gray-500 dark:text-gray-400">
-        <li>
-          <p>
-            Utilize SQL, Python, and data visualization tools to extract, analyze, and interpret complex data. Develop insights crucial for data-driven decision-making. Contribute to the development of interactive dashboards, reports, and visualizations using SQL, Python, and data visualization tools.
-          </p>
-        </li>
-        <li>
-          <p>
-            Apply statistical learning techniques and algorithms to uncover trends and patterns in manufacturing, supply chain, and shipment data.
-          </p>
-        </li>
-        <li>
-          <p>
-            Contribute to budgeting and planning processes to align data strategies with overall business objectives. Utilize Python, Power BI, and Microsoft Office for data mining, analysis, reporting, and presentation.
-          </p>
-        </li>
+      {% for item in work_experience.job_description|split %}
+        <li>{{ item }}</li>
+      {% endfor %}
       </ul>
     </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Research Assistant (RA)
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        University of Texas Rio Grande Valley (Edinburg, Texas), <span class="font-semibold text-gray-900 dark:text-white"> 2022</span>
-      </p>
-      <p class="block mt-2 mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        The National Science Foundation (NSF) Research Experience for Undergraduate Students (REU) Program on Applied Mathematics and Computational and Data Science
-      </p>
-      <ul class="ml-2 list-disc list-inside text-base font-normal text-gray-500 dark:text-gray-400">
-        <li>
-          <p>
-            Provided comprehensive training to undergraduate students in Python, R, and MATLAB for the purpose of modeling fractional differential equations and effectively visualizing the outcomes of their mathematical simulations.
-          </p>
-        </li>
-        <li>
-          <p>
-            Introduced them to Monte Carlo simulations and deep learning methods for tackling fractional differential equations systems using heavy-tailed distributions and mathematical simulations.
-          </p>
-        </li>
-        <li>
-          <p>
-            Assisted undergraduate students in refining their writing style, definitions, and outcome presentations for paper-style reports submitted to the NSF and the University of Texas Rio Grande Valley.
-          </p>
-        </li>
-      </ul>
-    </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Graduate Teaching Assistant (GTA)
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        University of Texas Rio Grande Valley (Edinburg, Texas), <span class="font-semibold text-gray-900 dark:text-white"> 2021</span>
-      </p>
-      <ul class="ml-2 list-disc list-inside text-base font-normal text-gray-500 dark:text-gray-400">
-        <li>
-          <p>
-            Assisted in guiding students through the process of mathematical modeling, helping them formulate and solve mathematical problems related to real-world scenarios.
-          </p>
-        </li>
-        <li>
-          <p>
-            Taught statistics courses, providing support to students in understanding statistical concepts, conducting data analysis, interpreting results effectively, and visualizing the outcomes correctly using Python and R.
-          </p>
-        </li>
-        <li>
-          <p>
-            Organized, planned, and facilitated math and stats outreach events to promote awareness and understanding of these subjects.
-          </p>
-        </li>
-      </ul>
-    </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Lecturer
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        Caldas University (Manizales, Colombia),  <span class="font-semibold text-gray-900 dark:text-white"> 2020</span>
-      </p>
-      <ul class="ml-2 list-disc list-inside text-base font-normal text-gray-500 dark:text-gray-400">
-        <li>
-          <p>
-            Delivered comprehensive instruction in Calculus II, ensuring students grasped advanced mathematical concepts. Employed diverse teaching methods and practical examples to enhance understanding and problem-solving skill
-          </p>
-        </li>
-        <li>
-          <p>
-            Provided foundational knowledge in mathematics through the Fundamentals of Mathematics course. Equipped students with essential mathematical skills and logical reasoning to excel in software engineering.Algorithm:
-          </p>
-        </li>
-        <li>
-          <p>
-            Imparted statistical expertise to students through engaging in Statistics courses. Covered topics such as data analysis, probability theory, and statistical modeling, enabling students to make data-informed decisions in software engineering contexts.
-          </p>
-        </li>
-      </ul>
-    </li>
-    <li class="mb-10 ml-6">
-      <span class="flex absolute -left-3.5 justify-center items-center w-7 h-7 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-        <i class="fa-solid fa-bookmark fa-sm"></i>
-      </span>
-      <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white ml-2">
-        Delegate for Departmental Mathematics Olympiad
-      </h3>
-      <p class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500 ml-2" style="line-height: 1.25;">
-        National University of Colombia (Manizales, Colombia),  <span class="font-semibold text-gray-900 dark:text-white"> 2018</span>
-      </p>
-      <ul class="ml-2 list-disc list-inside text-base font-normal text-gray-500 dark:text-gray-400">
-        <li>
-          <p>
-            Responsible for organizing and overseeing Math Olympiads at the departmental level. Ensured smooth logistics, including test preparation, distribution, and supervision.
-          </p>
-        </li>
-      </ul>
-    </li>
+  {% endfor %}
   </ol>
 </div>
