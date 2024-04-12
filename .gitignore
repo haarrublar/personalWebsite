@@ -16,7 +16,7 @@ media/
 static/
 mysite_data.json
 node_modules/
-process_manual.md
+# process_manual.md
 
 # Version control files
 .git/
