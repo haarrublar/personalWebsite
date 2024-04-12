@@ -23,26 +23,29 @@ process_manual.md
 .gitignore
 
 # Environment-specific configuration files
-# .env
-# .venv
-# env/
-# venv/
+.env
+.venv
+env/
+venv/
 
 # Ignore Docker-related files
 .dockerignore
+Dockerfile
+docker-compose.yml
 docker-compose.override.yml
 environment.yml
 postgres_data.json
 sqlite3_data.json
 environment.yml
+entrypoint.sh
 
 # Ignore database files
-# *.sqlite3
+*.sqlite3
 
 # Ignore other Docker-related files or directories
-# .env
-# .env.dev
-# .env.prod
+.env
+.env.dev
+.env.prod
 
 # Compiled Python files
 *.py[cod]
