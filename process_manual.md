@@ -1470,8 +1470,6 @@ Create a `docker-compose.yml` file to define our Django application service and 
 
 
 ```yaml
-version: '3'
-
 services:
   web:
     container_name: djangoWebsite
@@ -1484,7 +1482,6 @@ services:
       - .env.dev
 
 ```
-
 
 
 ### Step 4: Create an entry point script
@@ -1542,12 +1539,12 @@ services:
 
   Replace `your_secret_key_here` with a secure secret key for your Django application. Set `DEBUG` to `True` for the development environment, and update `ALLOWED_HOSTS` with the appropriate host values for your development setup.
 
-Step 7: Execute the container
-With all the necessary files in place, you can now execute your containerized Django application using Docker Compose. Open a terminal, navigate to the directory containing your `docker-compose.yml` file, and run the following command:
+### Step 7: Execute the container
+  With all the necessary files in place, you can now execute your containerized Django application using Docker Compose. Open a terminal, navigate to the directory containing your `docker-compose.yml` file, and run the following command:
 
-```Bash
-docker compose build
-docker compose up -d
+  ```Bash
+  docker compose build
+  docker compose up -d
 ```
 
 You can check for errors in the logs as follows:
@@ -1557,6 +1554,140 @@ docker compose logs -f
 ```
 
 This command will build the Docker images (if they haven't been built already), start the containers, and display the logs in the terminal. You should see the Django development server start and be ready to accept incoming requests.
+
+
+
+### Deploying a Docker container: postgresql DB
+
+
+### Step 1: Install PostgreSQL properly
+  Before we can use PostgreSQL in our Docker setup, we need to install it on our local machine. 
+
+### Step 1.1: Eenable PostgreSQL-specific features
+  Before you can use PostgreSQL with your Django project, you need to install the PostgreSQL database adapter and enable the PostgreSQL-specific features provided by Django. 
+
+  1. Install the `psycopg2` package by adding it to your project's requirements file (e.g., `requirements.txt`):
+
+  ```
+  psycopg2==2.9.x
+  ```
+
+  2. In your Django project's `settings.py` file, add `django.contrib.postgres` to the `INSTALLED_APPS` list:
+
+  ```python
+  INSTALLED_APPS = [
+      # ... other installed apps ...
+      'django.contrib.postgres',
+  ]
+  ```
+
+  The `django.contrib.postgres` package provides PostgreSQL-specific model fields, database functions, and other utilities that can enhance your Django project's integration with PostgreSQL.
+
+
+### Step 2: Use the existing Dockerfile
+  Since you mentioned that the Dockerfile is already set up from the previous deployment with SQLite3, we can reuse it as is. No changes are required in the Dockerfile.
+
+### Step 3: Add the database to the `docker-compose.yml` and set environment variables
+  In the `docker-compose.yml` file, we need to add a new service for the PostgreSQL database and configure environment variables for the Django application to connect to the database.
+
+  ```yaml
+  services:
+    web:
+      # ... (existing configuration)
+      env_file:
+        - .env.dev
+      depends_on:
+        - db
+
+    db:
+      image: postgres:13
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        - POSTGRES_DB=myproject
+        - POSTGRES_USER=myprojectuser
+        - POSTGRES_PASSWORD=myprojectsecret
+
+  volumes:
+    postgres_data:
+  ```
+
+
+### Step 4: Update the variables in the `.env.dev` file
+  In the `.env.dev` file, we need to add the necessary environment variables for the Django application to connect to the PostgreSQL database. 
+
+  ```
+  DEBUG=True
+  ALLOWED_HOSTS=localhost,127.0.0.1
+
+  SQL_DATABASE=myproject
+  SQL_USER=myprojectuser
+  SQL_PASSWORD=myprojectsecret
+  SQL_HOST=db
+  SQL_PORT=5432
+  DATABASE=postgres
+  ```
+
+
+### Step 5: Set up the `settings.py` file for connecting to PostgreSQL
+  In the Django project's `settings.py` file, we need to configure the database connection settings to use PostgreSQL instead of SQLite3. Here's an example:
+
+  ```python
+  import os
+
+  # ... (other settings)
+
+  DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': os.environ.get('SQL_DATABASE'),
+          'USER': os.environ.get('SQL_USER'),
+          'PASSWORD': os.environ.get('SQL_PASSWORD'),
+          'HOST': os.environ.get('SQL_HOST'),
+          'PORT': os.environ.get('SQL_PORT'),
+      }
+  }
+  ```
+
+
+### Step 6: Update the `entrypoint.sh` script
+  We need to update the `entrypoint.sh` script to wait for the PostgreSQL database to become available before applying the migrations and running the Django development server. Here's an example:
+
+  ```bash
+  #!/bin/sh
+
+  # Wait for PostgreSQL to become available
+  if [ "$DATABASE" = "postgres" ]; then
+    echo "Waiting for PostgreSQL..."
+    while ! nc -z $SQL_HOST $SQL_PORT; do
+      sleep 1
+    done
+    echo "PostgreSQL started"
+  fi
+
+  # Apply database migrations
+  python manage.py migrate
+
+  # Load initial data
+  python manage.py loaddata data.json
+
+  # Collect static files
+  python manage.py collectstatic --no-input
+
+  # Start the Django development server
+  python manage.py runserver 0.0.0.0:8000
+  ```
+
+
+### Step 7: Execute the container
+
+  ```
+  docker build
+  docker-compose up
+  ```
+
+
+
 
 
 

@@ -85,59 +85,41 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 APPEND_SLASH = True
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = "django-insecure-3+zu_f&t#opj^_ce#e#54ok^6f-*=d*743qo$2v%e2d_=s@&@f"
+# SECRET_KEY = "django-insecure-3+zu_f&t#opj^_ce#e#54ok^6f-*=d*743qo$2v%e2d_=s@&@f"
 
-# SECURITY WARNING: Do not run with debug turned on in production!
-"""
-Variable to define if the project is being used in a production or development environment.
-Set DEBUG to True for development and False for production.
+# # SECURITY WARNING: Do not run with debug turned on in production!
+# """
+# Variable to define if the project is being used in a production or development environment.
+# Set DEBUG to True for development and False for production.
 
-In production, setting DEBUG to False is crucial for security. With DEBUG set to True, detailed error
-messages are displayed, which can expose sensitive information to attackers. Additionally, other settings
-such as ALLOWED_HOSTS and database settings should be configured properly for production environments.
-"""
+# In production, setting DEBUG to False is crucial for security. With DEBUG set to True, detailed error
+# messages are displayed, which can expose sensitive information to attackers. Additionally, other settings
+# such as ALLOWED_HOSTS and database settings should be configured properly for production environments.
+# """
 
-DEBUG = True
+# DEBUG = True
 
-"""
-Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
-"""
+# """
+# Select which IPs address allow access to your project. When DEBUG True it might be empty, when False it must be fill in.
+# """
 
-ALLOWED_HOSTS = ["*"]
-
-
-"""
-Database by default in DJANGO
-https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-""" 
+# ALLOWED_HOSTS = ["*"]
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
-
-
-# SECRET_KEY = os.environ.get("SECRET_KEY")
-# DEBUG = bool(os.environ.get("DEBUG", default=0))
-# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
-
-
+# """
+# Database by default in DJANGO
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# """ 
 
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.environ.get("SQL_ENGINE"),
-#         'NAME': os.environ.get("SQL_DATABASE"),
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 
 
 # """
@@ -155,16 +137,34 @@ DATABASES = {
 
 
 
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = bool(os.environ.get("DEBUG", default=0))
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
+
+
+
+
 # DATABASES = {
-#     "default": {
-#         "ENGINE": os.environ.get("SQL_ENGINE"),
-#         "NAME": os.environ.get("SQL_DATABASE"),
-#         "USER": os.environ.get("SQL_USER"),
-#         "PASSWORD": os.environ.get("SQL_PASSWORD"),
-#         "HOST": os.environ.get("SQL_HOST"),
-#         "PORT": os.environ.get("SQL_PORT"),
+#     'default': {
+#         'ENGINE': os.environ.get("SQL_ENGINE"),
+#         'NAME': os.environ.get("SQL_DATABASE"),
 #     }
 # }
+
+
+
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE"),
+        "NAME": os.environ.get("SQL_DATABASE"),
+        "USER": os.environ.get("SQL_USER"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD"),
+        "HOST": os.environ.get("SQL_HOST"),
+        "PORT": os.environ.get("SQL_PORT"),
+    }
+}
 
 
 

@@ -36,7 +36,5 @@ COPY . /usr/src/website/
 
 # --------------------------------------- #
 
-# Expose the port the Django app runs on
-EXPOSE 8000
 
 ENTRYPOINT [ "/usr/src/website/entrypoint.sh" ]
