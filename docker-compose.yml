@@ -7,19 +7,19 @@ services:
       - .:/usr/src/website
     ports:
       - '8000:8000'
-    depends_on:
-      - db
     env_file:
       - ./.env.dev
+#     depends_on:
+#       - db
 
-  db:
-    image: postgres:15
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    environment: 
-      - POSTGRES_USER=blog
-      - POSTGRES_DB=blog 
-      - POSTGRES_PASSWORD=sky
+#   db:
+#     image: postgres:15
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data/
+#     environment: 
+#       - POSTGRES_USER=blog
+#       - POSTGRES_DB=blog 
+#       - POSTGRES_PASSWORD=sky
     
-volumes:
-  postgres_data:
+# volumes:
+#   postgres_data:

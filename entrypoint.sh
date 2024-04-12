@@ -1,21 +1,17 @@
 #!/bin/ash
 
-# python manage.py flush --no-input && \
-# python manage.py migrate && \
-# python manage.py loaddata recovery_data.json
-
-if [ "$DATABASE" = "postgres" ]
-then
+if [ "$DATABASE" = "sqlite" ]; then
+    echo "Using sqlite DB"
+elif [ "$DATABASE" = "postgres" ]; then
     echo "Waiting for postgres..."
-
     while ! nc -z $SQL_HOST $SQL_PORT; do
-      sleep 0.1
+        sleep 0.1
     done
-
     echo "PostgreSQL started"
+else
+    echo "Using a different database engine"
 fi
 
-python manage.py migrate && \
-python manage.py loaddata recovery_data.json 
+python manage.py migrate 
 
 exec "$@"

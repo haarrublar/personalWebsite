@@ -2152,7 +2152,7 @@ And that's it! By following these steps, you've successfully recovered from the 
 
 
 
-## Debugging DEV
+# Debugging DEV
 
 In separate terminals:
 
@@ -2161,3 +2161,83 @@ npm run dev
 python manage.py livereload
 python3 manage.py runserver
 ```
+
+
+## Modifying the Django Settings for Flexible Deployment
+
+  To allow for different starting settings rather than the `settings.py` file, we create a `deployment.py` file and configure it to enable the use of an environment for deploying the Django project. This configuration allows for greater flexibility and customization in the deployment process.
+
+### settings.py Modifications:
+
+  Add the following configuration to `deployment.py`:
+
+  ```python
+  import os
+  from .settings import *
+
+  SECRET_KEY = os.environ.get("SECRET_KEY")
+  DEBUG = bool(os.environ.get("DEBUG", default=0))
+  ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(" ")
+
+  CSRF_TRUSTED_ORIGINS = 'https://' + ALLOWED_HOSTS
+
+  MIDDLEWARE = [
+      'django.middleware.security.SecurityMiddleware',
+      'whitenoise.middleware.WhiteNoiseMiddleware',
+      'django.contrib.sessions.middleware.SessionMiddleware',
+      'django.middleware.common.CommonMiddleware',
+      'django.middleware.csrf.CsrfViewMiddleware',
+      'django.contrib.auth.middleware.AuthenticationMiddleware',
+      'django.contrib.messages.middleware.MessageMiddleware',
+      'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      'livereload.middleware.LiveReloadScript'
+  ]
+
+  STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+  DATABASES = {
+      "default": {
+          "ENGINE": os.environ.get("SQL_ENGINE"),
+          "NAME": os.environ.get("SQL_DATABASE"),
+        # in case postgresql is active add the following to the .env
+          "USER": os.environ.get("SQL_USER"),
+          "PASSWORD": os.environ.get("SQL_PASSWORD"),
+          "HOST": os.environ.get("SQL_HOST"),
+          "PORT": os.environ.get("SQL_PORT"),
+      }
+  }
+  ```
+
+### manage.py and wsgi.py Updates:
+
+  Update `manage.py` and `wsgi.py` to double-check if the deployment is using `settings.py` or `deployment.py`:
+
+  ```python
+  settings_module = 'website.deployment' if 'ENV_ACTIVATE' in os.environ else 'website.settings'
+  os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+```
+
+### Environment Configuration:
+
+  For the deployment, use a mixture of two databases (`sqlite3` and `postgres`). Define the `ENV_ACTIVATE` variable in the environment to activate the `.env` deployment. Choose either the `sqlite3` or `postgres` database configuration by uncommenting the relevant lines in the `.env` file and commenting/deleting the lines for the other database.
+
+  ```env
+  # for activating .env deployment
+  ENV_ACTIVATE
+  DEBUG=1
+  SECRET_KEY=foo
+  DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+
+  # SQLite DB
+  SQL_ENGINE=django.db.backends.sqlite3
+  SQL_DATABASE=/usr/src/website/db.sqlite3
+
+  # Postgres DB
+  # SQL_ENGINE=django.db.backends.postgresql
+  # SQL_DATABASE=blog
+  # SQL_USER=blog
+  # SQL_PASSWORD=sky
+  # SQL_HOST=db
+  # SQL_PORT=5432
+  ```
+
