@@ -13,7 +13,6 @@ db.sqlite3-journal
 
 # Media and static files
 media/
-static/
 mysite_data.json
 node_modules/
 # process_manual.md
