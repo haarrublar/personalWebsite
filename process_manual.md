@@ -1405,6 +1405,70 @@ To instal and configuring Docker Desktop and ensuring a smooth and efficient wor
   ```
 
 
+### Setting up Docker in EC2
+
+
+### Prerequisites
+- AWS EC2 instance (e.g., Amazon Linux 2)
+- Docker
+- Docker Compose
+
+### Setting up Docker on EC2
+
+Before deploying your application, you need to set up Docker on your EC2 instance. Follow these steps:
+
+1. **Update the package manager and install Docker**:
+
+   ```bash
+   sudo yum update
+   sudo yum install docker
+   ```
+
+2. **Start the Docker service and verify its status**:
+
+   ```bash
+   sudo service docker start
+   docker info
+   ```
+
+   The `docker info` command should display information about the Docker installation.
+
+3. **Create a Docker group (if it doesn't exist)**:
+
+   ```bash
+   sudo groupadd docker
+   ```
+
+4. **Add your user to the Docker group**:
+
+   ```bash
+   sudo usermod -aG docker ${USER}
+   ```
+
+   Replace `${USER}` with your actual user account name on the EC2 instance.
+
+5. **Change the permissions for the Docker socket**:
+
+   ```bash
+   sudo chmod 666 /var/run/docker.sock
+   ```
+
+   This step ensures that your user has the necessary permissions to communicate with the Docker daemon.
+
+6. **Enable and restart the Docker service**:
+
+   ```bash
+   sudo systemctl enable docker
+   sudo systemctl restart docker
+   ```
+
+   This step ensures that Docker will start automatically on system boot and applies the changes made in the previous steps.
+
+After completing these steps, Docker should be properly set up and ready to use on your EC2 instance.
+
+
+
+
 ### Deploying a Docker container: sqlite3 DB
 
 #### Step 1: Export the data to a JSON file using `loaddata`
@@ -2299,7 +2363,42 @@ While a precise percentage is difficult, some users report EC2 cost reductions b
 
 ### Deploying to AWS EC2
 
-1. **Create an AWS Account**
-   - If you don't have an AWS account, visit the AWS website (https://aws.amazon.com/) and create a new account.
+1. **Update the package manager and install Nginx**:
 
+   ```bash
+   sudo yum update
+   sudo yum install nginx
+   ```
 
+2. **Verify the Nginx installation**:
+
+   ```bash
+   sudo nginx -v
+   ```
+
+   This command should display the version of Nginx installed on your EC2 instance.
+
+3. **Check the status of the Nginx service**:
+
+   ```bash
+   sudo systemctl status nginx
+   ```
+
+   This command will show you the current status of the Nginx service.
+
+4. **Enable and start the Nginx service**:
+
+   ```bash
+   sudo systemctl enable nginx
+   sudo systemctl start nginx
+   ```
+
+   The `enable` command ensures that Nginx will start automatically on system boot, and the `start` command starts the Nginx service immediately.
+
+Alternatively, you can combine the `enable` and `start` commands into a single command:
+
+```bash
+sudo systemctl enable nginx && sudo systemctl restart nginx
+```
+
+This command will enable Nginx to start on system boot and restart the service to apply any changes made to the configuration files.
