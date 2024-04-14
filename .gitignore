@@ -12,7 +12,6 @@ db.sqlite3-journal
 **/__pycache__/
 
 # Media and static files
-media/
 mysite_data.json
 node_modules/
 # process_manual.md
