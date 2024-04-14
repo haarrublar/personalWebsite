@@ -2241,3 +2241,22 @@ python3 manage.py runserver
   # SQL_PORT=5432
   ```
 
+## Django to AWS EC2
+
+### Prerequisites
+
+1. **Linux Requirements**
+   - Ensure that Nginx is active and running. If Nginx is not active, it might be because Apache is running and occupying the default HTTP port (80).
+   - To stop Apache and start Nginx, follow these steps:
+
+     ```bash
+     sudo apachectl stop && sudo /etc/init.d/apache2 stop
+     sudo systemctl enable nginx && sudo systemctl restart nginx
+     ```
+
+### Deploying to AWS EC2
+
+1. **Create an AWS Account**
+   - If you don't have an AWS account, visit the AWS website (https://aws.amazon.com/) and create a new account.
+
+
