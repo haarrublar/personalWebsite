@@ -10,6 +10,7 @@
    - [Usage](#usage)
    - [Sitemaps](#sitemaps)
    - [Dockerization](#Dockerization)
+   - [Deployment with GUNICORN & NGINX in EC2](#deployment-with-gunicorn--nginx-in-ec2)
    - [Technologies Used](#technologies-used)
    - [Contributing](#contributing)
    - [License](#license)
@@ -259,52 +260,89 @@
 
 ### Step 1: Configure `settings.py`
 
-To start, it's crucial to configure the `settings.py` file correctly to utilize environment variables for settings such as `ALLOWED_HOSTS`, `SECRET_KEY`, `DEBUG`, and `DATABASES`.
+   To start, it's crucial to configure the `settings.py` file correctly to utilize environment variables for settings such as `ALLOWED_HOSTS`, `SECRET_KEY`, `DEBUG`, and `DATABASES`.
 
-Ensure that you have `os` imported at the top of your `settings.py` file to utilize the `os.environ.get` method. This method is commonly used for setting a development environment for Django and Docker deployment, enabling you to connect your Django project to a database and configure other settings dynamically
+   Ensure that you have `os` imported at the top of your `settings.py` file to utilize the `os.environ.get` method. This method is commonly used for setting a development environment for Django and Docker deployment, enabling you to connect your Django project to a database and configure other settings dynamically
 
 
 ### Step 2: Create a Development Environment
 
-Next, create a `.env` file in the root of your project to define your environment variables. This file should not be included in version control to keep your secrets safe. Here's an example `.env` file:
+   Next, create a `.env` file in the root of your project to define your environment variables. This file should not be included in version control to keep your secrets safe. Here's an example `.env` file:
 
-```
-DJANGO_ALLOWED_HOSTS=localhost
-SECRET_KEY=your_secret_key_here
-DEBUG=1
-SQL_ENGINE=django.db.backends.postgresql
-SQL_DATABASE=your_database_name
-SQL_USER=your_database_user
-SQL_PASSWORD=your_database_password
-SQL_HOST=db
-SQL_PORT=5432
-```
+   ```
+   DJANGO_ALLOWED_HOSTS=localhost
+   SECRET_KEY=your_secret_key_here
+   DEBUG=1
+   SQL_ENGINE=django.db.backends.postgresql
+   SQL_DATABASE=your_database_name
+   SQL_USER=your_database_user
+   SQL_PASSWORD=your_database_password
+   SQL_HOST=db
+   SQL_PORT=5432
+   ```
 
 ### Step 3: Docker Compose Configuration
 
-Additionally, you need a `docker-compose.yml` file to define your Docker services. 
+   Additionally, you need a `docker-compose.yml` file to define your Docker services. 
 
 
 ### Step 4: Dockerfile
 
-The `Dockerfile` recommended (used in this project) is configured starting with a base image of **Alpine Linux version 3.18**. `apk`, the package manager for Alpine Linux, is used for updating the package index and installs py3-pip for managing Python packages. 
+   The `Dockerfile` recommended (used in this project) is configured starting with a base image of **Alpine Linux version 3.18**. `apk`, the package manager for Alpine Linux, is used for updating the package index and installs py3-pip for managing Python packages. 
 
 
 ### Step 5: Entry Point Script
 
-Create the `ENTRYPOINT` directive is set to execute the `entrypoint.sh` script, which contains startup commands for the Django website. 
+   Create the `ENTRYPOINT` directive is set to execute the `entrypoint.sh` script, which contains startup commands for the Django website. 
 
 
 ### Step 5: Build and Run Your Docker Containers
 
-Finally with your `settings.py`, `.env`, and `docker-compose.yml` configured, you can now build and run your Docker containers using the following command:
+   Finally with your `settings.py`, `.env`, and `docker-compose.yml` configured, you can now build and run your Docker containers using the following command:
 
-```Bash
-docker-compose up --build
-```
+   ```Bash
+   docker-compose up --build
+   ```
 
-Your Django project should now be running in a Docker container, allowing for easy development and deployment.
+   Your Django project should now be running in a Docker container, allowing for easy development and deployment.
 
+
+
+## Deployment with GUNICORN & NGINX in EC2
+
+   After installing [gunicorn](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) and [nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html) and dockerazing the project, the way to build the project might be as follows (use the loaddata command in case you need to populate the database):
+
+   1. Create the python environment and install `requirements.txt`.
+   2. For simple deployment execute:
+
+      ```Bash
+      docker compose -f docker-compose.prod.yml up -d --build
+      ```
+
+   3. For extra executions using docker consider:
+
+      ```bash
+      # Stop and remove existing containers and volumes
+      $ docker compose -f docker-compose.prod.yml down -v
+
+      # Build and start the containers in detached mode
+      $ docker compose -f docker-compose.prod.yml up -d --build
+
+      # Execute Django management commands
+      $ docker compose -f docker-compose.prod.yml exec web python manage.py makemigrations
+      $ docker compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
+      $ docker compose -f docker-compose.prod.yml exec web python manage.py loaddata data.json
+
+      # Collect static files (if applicable)
+      $ docker compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input
+      ```
+
+   **NOTE**: In case there is port use consider using:
+
+   ```Bash
+   sudo lsof -i :80
+   sudo kill <PID>
+   ```
 
 
 
@@ -318,15 +356,15 @@ Your Django project should now be running in a Docker container, allowing for ea
 
 ## Contributing
 
-Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request. When contributing, please follow the existing code style and conventions.
+   Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request. When contributing, please follow the existing code style and conventions.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+   This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or feedback, feel free to reach out:
+   If you have any questions or feedback, feel free to reach out:
 
-- Email: [harrubla.96@gmail.com](mailto:harrubla.96@gmail.com)
-- Twitter: [@haarrublar](https://twitter.com/haarrublar)
+   - Email: [harrubla.96@gmail.com](mailto:harrubla.96@gmail.com)
+   - Twitter: [@haarrublar](https://twitter.com/haarrublar)
