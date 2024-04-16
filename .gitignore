@@ -62,3 +62,7 @@ entrypoint.sh
 # API keys and secrets
 *.env
 *.secret
+
+#nginx
+nginx-selfsigned.key
+nginx-selfsigned.crt
