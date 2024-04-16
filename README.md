@@ -10,7 +10,7 @@
    - [Usage](#usage)
    - [Sitemaps](#sitemaps)
    - [Dockerization](#Dockerization)
-   - [Deployment with GUNICORN & NGINX in EC2](#deployment-with-gunicorn--nginx-in-ec2)
+   - [Deployment with GUNICORN & NGINX](#deployment-with-gunicorn--nginx)
    - [Technologies Used](#technologies-used)
    - [Contributing](#contributing)
    - [License](#license)
@@ -308,7 +308,7 @@
 
 
 
-## Deployment with GUNICORN & NGINX in EC2
+## Deployment with GUNICORN & NGINX
 
    After installing [gunicorn](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) and [nginx](https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html) and dockerazing the project, the way to build the project might be as follows (use the loaddata command in case you need to populate the database):
 
@@ -342,6 +342,48 @@
    ```Bash
    sudo lsof -i :80
    sudo kill <PID>
+   ```
+
+
+### Regenerate the SSL certificate and key
+SSH into your server and navigate to the `nginx/` directory. Run the following command to generate a new SSL certificate and key:
+
+   ```
+   openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx-selfsigned.key -out nginx-selfsigned.crt
+   ```
+
+This will create the `nginx-selfsigned.key` and `nginx-selfsigned.crt` files in the `nginx/` directory.
+
+Next, Update the Nginx Dockerfile.
+
+   ```Dockerfile
+   FROM nginx:1.25
+
+   RUN rm /etc/nginx/conf.d/default.conf
+   COPY nginx.conf /etc/nginx/conf.d/
+   COPY nginx-selfsigned.crt /etc/ssl/certs/
+   COPY nginx-selfsigned.key /etc/ssl/private/
+   RUN chmod 644 /etc/ssl/certs/nginx-selfsigned.crt \
+      && chmod 600 /etc/ssl/private/nginx-selfsigned.key
+   ```
+
+Finally, Update the `nginx.conf` file to ensure that the paths for the SSL certificate and key files match the locations where you're copying them in the Dockerfile.
+
+   ```nginx
+   server {
+      listen 443 ssl;
+      server_name haarrublar.com;
+
+      ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+      ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+      location / {
+            proxy_pass http://website;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $host;
+            proxy_redirect off;
+      }
+   }
    ```
 
 
